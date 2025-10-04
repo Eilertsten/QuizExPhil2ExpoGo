@@ -521,6 +521,17 @@ export default function App() {
           </Text>
           , så oppdaterer vi.
         </Text>
+        {/* Testfelt for antall poster i JSON-filen */}
+        <Text
+          style={{
+            color: "#4da6ff",
+            fontSize: 13,
+            marginTop: 8,
+            fontWeight: "bold",
+          }}
+        >
+          Antall poster i JSON: {allQuestions.length}
+        </Text>
       </View>
     </SafeAreaView>
   );

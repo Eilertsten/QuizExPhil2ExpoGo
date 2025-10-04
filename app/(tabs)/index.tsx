@@ -17,7 +17,9 @@ type Question = {
 };
 
 const QUESTION_URLS: Record<string, string> = {
-  "00": "https://gist.githubusercontent.com/Eilertsten/27e727be7d5dbb0301d4fe030673a673/raw/9f60f54896c27988e92777cc253cd54dfca7fef6/00VITEquestions",
+  "00": "https://gist.githubusercontent.com/Eilertsten/27e727be7d5dbb0301d4fe030673a673/raw/9f60f54896c27988e92777cc253cd54dfca7fef6/00VITEquestions"
+  // "00": "https://gist.githubusercontent.com/Eilertsten/27e727be7d5dbb0301d4fe030673a673/raw/9f60f54896c27988e92777cc253cd54dfca7fef6/00VITEquestions",
+  
 };
 
 function getQuestionsUrl(countyCode: string) {
@@ -25,9 +27,9 @@ function getQuestionsUrl(countyCode: string) {
 }
 
 const COUNTIES = [
-  { code: "00", name: "VITE (epistemologi, vitenskapsteori, skeptisisme)" },
-  { code: "01", name: "VÆRE (ontologi, virkelighet, metafysikk)" },
-  { code: "02", name: "GJØRE (etikk, moral, samfunnsfilosofi)" },
+  { code: "00", name: "VITE", desc: "epistemologi, vitenskapsteori, skeptisisme" },
+  { code: "01", name: "VÆRE", desc: "ontologi, virkelighet, metafysikk" },
+  { code: "02", name: "GJØRE", desc: "etikk, moral, samfunnsfilosofi" },
 ];
 
 export default function App() {
@@ -315,9 +317,8 @@ export default function App() {
               fontWeight: "700",
             }}
           >
-            Lærefase
+            Lære
           </Text>
-          {/* Flyttet og gjort teller mindre */}
           <Text
             style={{
               color: "#4da6ff",
@@ -331,17 +332,29 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      {/* Kategori-navn */}
-      <Text
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          marginBottom: 6,
-          fontSize: 20,
-        }}
-      >
-        {COUNTIES.find((c) => c.code === selectedCounty)?.name}
-      </Text>
+      {/* Kategori-navn og beskrivelse */}
+      <View style={{ marginBottom: 6 }}>
+        <Text
+          style={{
+            color: "#fff",
+            textAlign: "center",
+            fontSize: 22,
+            fontWeight: "700",
+          }}
+        >
+          {COUNTIES.find((c) => c.code === selectedCounty)?.name}
+        </Text>
+        <Text
+          style={{
+            color: "#aaa",
+            textAlign: "center",
+            fontSize: 14,
+            marginTop: 2,
+          }}
+        >
+          {COUNTIES.find((c) => c.code === selectedCounty)?.desc}
+        </Text>
+      </View>
 
       {/* Besvart */}
       <View style={{ alignItems: "center", marginBottom: 16 }}>
@@ -470,15 +483,17 @@ export default function App() {
               key={county.code}
               onPress={() => changeCounty(county.code)}
               style={{
-                paddingHorizontal: 10,
-                paddingVertical: 8,
+                paddingHorizontal: 18,
+                paddingVertical: 10,
                 margin: 6,
                 borderRadius: 8,
                 backgroundColor:
                   selectedCounty === county.code ? "#666" : "#333",
               }}
             >
-              <Text style={{ color: "#fff", fontSize: 12 }}>{county.name}</Text>
+              <Text style={{ color: "#fff", fontSize: 16, fontWeight: "700" }}>
+                {county.name}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>

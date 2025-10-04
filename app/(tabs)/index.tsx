@@ -304,6 +304,8 @@ export default function App() {
             borderWidth: 1,
             borderColor: learnMode ? "#4da6ff" : "#444",
             backgroundColor: learnMode ? "#17364a" : "#222",
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
           <Text
@@ -314,6 +316,17 @@ export default function App() {
             }}
           >
             Lærefase
+          </Text>
+          {/* Flyttet og gjort teller mindre */}
+          <Text
+            style={{
+              color: "#4da6ff",
+              fontSize: 18,
+              fontWeight: "900",
+              marginLeft: 8,
+            }}
+          >
+            {learnCount}
           </Text>
         </TouchableOpacity>
       </View>
@@ -350,12 +363,6 @@ export default function App() {
           <Text style={{ color: "#ddd", fontSize: 18 }}>Riktige:</Text>
           <Text style={{ color: "green", fontSize: 40, fontWeight: "900" }}>
             {progress}
-          </Text>
-        </View>
-
-        <View style={{ alignItems: "center" }}>
-          <Text style={{ color: "#4da6ff", fontSize: 40, fontWeight: "900" }}>
-            {learnCount}
           </Text>
         </View>
 

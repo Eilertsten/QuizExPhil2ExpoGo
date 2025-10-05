@@ -279,7 +279,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111", padding: 16 }}>
-      {/* Tittel + Lærefase-knapp */}
+      {/* Tittel + Lærefase-checkbox */}
       <View
         style={{
           flexDirection: "row",
@@ -300,45 +300,50 @@ export default function App() {
           ExPhilQuiz
         </Text>
 
+        {/* Bytt ut knapp med checkbox */}
         <TouchableOpacity
           onPress={() => {
-            setLearnMode((s) => {
-              const newMode = !s;
-              if (newMode) {
-                setLearnCount((c) => c + 1);
-              }
-              return newMode;
-            });
+            setLearnMode((s) => !s);
           }}
           style={{
-            paddingHorizontal: 10,
-            paddingVertical: 6,
-            borderRadius: 8,
-            borderWidth: 1,
-            borderColor: learnMode ? "#4da6ff" : "#444",
-            backgroundColor: learnMode ? "#17364a" : "#222",
             flexDirection: "row",
             alignItems: "center",
+            marginLeft: 10,
           }}
+          activeOpacity={0.8}
         >
+          <View
+            style={{
+              width: 22,
+              height: 22,
+              borderRadius: 4,
+              borderWidth: 2,
+              borderColor: "#4da6ff",
+              backgroundColor: learnMode ? "#4da6ff" : "#222",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 6,
+            }}
+          >
+            {learnMode && (
+              <View
+                style={{
+                  width: 12,
+                  height: 12,
+                  backgroundColor: "#fff",
+                  borderRadius: 2,
+                }}
+              />
+            )}
+          </View>
           <Text
             style={{
-              color: learnMode ? "#4da6ff" : "#fff",
+              color: "#4da6ff",
               fontSize: 14,
               fontWeight: "700",
             }}
           >
-            Lære
-          </Text>
-          <Text
-            style={{
-              color: "#4da6ff",
-              fontSize: 18,
-              fontWeight: "900",
-              marginLeft: 8,
-            }}
-          >
-            {learnCount}
+            {showExplanation ? "Fjerne svartips" : "Svartips"}
           </Text>
         </TouchableOpacity>
       </View>
@@ -434,16 +439,13 @@ export default function App() {
       {/* Alternativer */}
       {currentQuestion.options.map((opt, idx) => {
         let backgroundColor = "#333";
-        if (learnMode) {
-          backgroundColor =
-            idx === currentQuestion.correctIndex ? "green" : "#333";
-        } else {
+        if (!learnMode) {
           if (selectedIndex !== null) {
             if (idx === currentQuestion.correctIndex) backgroundColor = "green";
             else if (idx === selectedIndex) backgroundColor = "red";
           }
         }
-
+        // Ikke vis riktig svar i grønt i svartips-modus
         return (
           <TouchableOpacity
             key={idx}

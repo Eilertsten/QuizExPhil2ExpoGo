@@ -18,8 +18,7 @@ type Question = {
 
 const QUESTION_URLS: Record<string, string> = {
   "00": "https://gist.githubusercontent.com/Eilertsten/08dcc97a97b9aaf12227eabe093d6c93/raw/be79d9d6526f6fdb03d9dfec8ba90331b9c71900/00VITEquestions",
-  // "00": "https://gist.githubusercontent.com/Eilertsten/27e727be7d5dbb0301d4fe030673a673/raw/9f60f54896c27988e92777cc253cd54dfca7fef6/00VITEquestions",
-  
+  "01": "https://gist.githubusercontent.com/Eilertsten/dbd23601d9c34b653cf34831e53bb848/raw/0356a8bf9fe14373fc1d9ee216e41601d1835966/01VEAREquestions",
 };
 
 function getQuestionsUrl(countyCode: string) {
@@ -28,9 +27,13 @@ function getQuestionsUrl(countyCode: string) {
 
 const COUNTIES = [
   { code: "00", name: "VITE", desc: "epistemologi, vitenskapsteori, skeptisisme" },
-  // { code: "01", name: "VÆRE", desc: "ontologi, virkelighet, metafysikk" },
+  { code: "01", name: "VÆRE", desc: "ontologi, virkelighet, metafysikk" },
   // { code: "02", name: "GJØRE", desc: "etikk, moral, samfunnsfilosofi" },
 ];
+
+// Legg til en farge for valgt kategori
+const SELECTED_COLOR = "#a259ff"; // Lilla
+const UNSELECTED_COLOR = "#bbb";
 
 export default function App() {
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
@@ -164,6 +167,14 @@ export default function App() {
 
   const changeCounty = (code: string) => {
     setSelectedCounty(code);
+    // Nullstill alle tellere og læringsmodus og forklaring
+    setProgress(0);
+    setAnswered(0);
+    setSelectedIndex(null);
+    setFinished(false);
+    setShowExplanation(false);
+    setLearnMode(false);
+    setLearnCount(0);
   };
 
   if (loading) {
@@ -336,7 +347,7 @@ export default function App() {
       <View style={{ marginBottom: 6 }}>
         <Text
           style={{
-            color: "#fff",
+            color: SELECTED_COLOR,
             textAlign: "center",
             fontSize: 22,
             fontWeight: "700",
@@ -487,11 +498,21 @@ export default function App() {
                 paddingVertical: 10,
                 margin: 6,
                 borderRadius: 8,
-                backgroundColor:
-                  selectedCounty === county.code ? "#666" : "#333",
+                backgroundColor: "#222",
+                borderWidth: selectedCounty === county.code ? 2 : 0,
+                borderColor: selectedCounty === county.code ? SELECTED_COLOR : "transparent",
               }}
             >
-              <Text style={{ color: "#fff", fontSize: 16, fontWeight: "700" }}>
+              <Text
+                style={{
+                  color:
+                    selectedCounty === county.code
+                      ? SELECTED_COLOR
+                      : UNSELECTED_COLOR,
+                  fontSize: 16,
+                  fontWeight: "700",
+                }}
+              >
                 {county.name}
               </Text>
             </TouchableOpacity>

@@ -343,7 +343,7 @@ export default function App() {
               fontWeight: "700",
             }}
           >
-            {showExplanation ? "Fjerne svartips" : "Svartips"}
+            {learnMode ? "Fjerne svartips" : "Svartips"}
           </Text>
         </TouchableOpacity>
       </View>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   Linking,
   SafeAreaView,
   Text,
@@ -175,6 +176,26 @@ export default function App() {
     setShowExplanation(false);
     setLearnMode(false);
     setLearnCount(0);
+  };
+
+  // Ny funksjon for å håndtere kategori-bytte med bekreftelse
+  const confirmAndChangeCounty = (code: string) => {
+    if (answered > 0 || progress > 0) {
+      Alert.alert(
+        "Bytt kategori",
+        "Ved å endre kategori mister du all informasjon i den pågående quizen. Vil du fortsette?",
+        [
+          { text: "Avbryt", style: "cancel" },
+          {
+            text: "Bytt kategori",
+            style: "destructive",
+            onPress: () => changeCounty(code),
+          },
+        ]
+      );
+    } else {
+      changeCounty(code);
+    }
   };
 
   if (loading) {
@@ -361,7 +382,7 @@ export default function App() {
           {COUNTIES.map((county) => (
             <TouchableOpacity
               key={county.code}
-              onPress={() => changeCounty(county.code)}
+              onPress={() => confirmAndChangeCounty(county.code)}
               style={{
                 paddingHorizontal: 10, // mindre bredde
                 paddingVertical: 6,    // mindre høyde

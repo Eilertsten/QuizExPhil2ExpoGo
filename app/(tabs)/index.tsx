@@ -343,24 +343,52 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      {/* Kategori-navn og beskrivelse */}
-      <View style={{ marginBottom: 6 }}>
+      {/* Kategori-knapper og beskrivelse */}
+      <View style={{ marginBottom: 6, alignItems: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            marginBottom: 2,
+          }}
+        >
+          {COUNTIES.map((county) => (
+            <TouchableOpacity
+              key={county.code}
+              onPress={() => changeCounty(county.code)}
+              style={{
+                paddingHorizontal: 10, // mindre bredde
+                paddingVertical: 6,    // mindre høyde
+                margin: 4,             // litt mindre margin
+                borderRadius: 8,
+                backgroundColor: "#222",
+                borderWidth: selectedCounty === county.code ? 2 : 0,
+                borderColor: selectedCounty === county.code ? SELECTED_COLOR : "transparent",
+              }}
+            >
+              <Text
+                style={{
+                  color:
+                    selectedCounty === county.code
+                      ? SELECTED_COLOR
+                      : UNSELECTED_COLOR,
+                  fontSize: 16, // mindre tekst
+                  fontWeight: "700",
+                }}
+              >
+                {county.name}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
         <Text
           style={{
             color: SELECTED_COLOR,
             textAlign: "center",
-            fontSize: 22,
-            fontWeight: "700",
-          }}
-        >
-          {COUNTIES.find((c) => c.code === selectedCounty)?.name}
-        </Text>
-        <Text
-          style={{
-            color: "#aaa",
-            textAlign: "center",
-            fontSize: 14,
+            fontSize: 16, // ett punkt større
             marginTop: 2,
+            fontStyle: "italic",
           }}
         >
           {COUNTIES.find((c) => c.code === selectedCounty)?.desc}
@@ -368,9 +396,9 @@ export default function App() {
       </View>
 
       {/* Besvart */}
-      <View style={{ alignItems: "center", marginBottom: 16 }}>
-        <Text style={{ color: "#ddd", fontSize: 16 }}>
-          Besvart {answered}/{totalQuestions}
+      <View style={{ alignItems: "center", marginBottom: 16, marginTop: 18 }}>
+        <Text style={{ color: "#ddd", fontSize: 17 }}>
+          Besvart {answered} av {totalQuestions}
         </Text>
       </View>
 
@@ -477,49 +505,6 @@ export default function App() {
         </View>
       )}
 
-      {/* Velg kategori */}
-      <View style={{ marginTop: 14, alignItems: "center" }}>
-        <Text style={{ color: "#aaa", marginBottom: 8 }}>
-          Velg ExPhil kategori:
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          {COUNTIES.map((county) => (
-            <TouchableOpacity
-              key={county.code}
-              onPress={() => changeCounty(county.code)}
-              style={{
-                paddingHorizontal: 18,
-                paddingVertical: 10,
-                margin: 6,
-                borderRadius: 8,
-                backgroundColor: "#222",
-                borderWidth: selectedCounty === county.code ? 2 : 0,
-                borderColor: selectedCounty === county.code ? SELECTED_COLOR : "transparent",
-              }}
-            >
-              <Text
-                style={{
-                  color:
-                    selectedCounty === county.code
-                      ? SELECTED_COLOR
-                      : UNSELECTED_COLOR,
-                  fontSize: 16,
-                  fontWeight: "700",
-                }}
-              >
-                {county.name}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-
       {/* Footer tekst */}
       <View
         style={{ marginTop: "auto", alignItems: "center", marginBottom: 8 }}
@@ -542,7 +527,7 @@ export default function App() {
           </Text>
           , så oppdaterer vi.
         </Text>
-        {/* Testfelt for antall poster i JSON-filen */}
+        {/* Testfelt for antall poster i JSON-filen
         <Text
           style={{
             color: "#4da6ff",
@@ -552,7 +537,7 @@ export default function App() {
           }}
         >
           Antall poster i JSON: {allQuestions.length}
-        </Text>
+        </Text> */}
       </View>
     </SafeAreaView>
   );

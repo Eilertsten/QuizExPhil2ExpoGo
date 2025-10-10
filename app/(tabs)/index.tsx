@@ -20,6 +20,7 @@ type Question = {
 const QUESTION_URLS: Record<string, string> = {
   "00": "https://gist.githubusercontent.com/Eilertsten/08dcc97a97b9aaf12227eabe093d6c93/raw/be79d9d6526f6fdb03d9dfec8ba90331b9c71900/00VITEquestions",
   "01": "https://gist.githubusercontent.com/Eilertsten/dbd23601d9c34b653cf34831e53bb848/raw/0356a8bf9fe14373fc1d9ee216e41601d1835966/01VEAREquestions",
+  "02": "https://gist.githubusercontent.com/Eilertsten/ce530f1002c7bb5bf4473da10de2bf98/raw/b8d0ad74d0e11e807196efc37b4480fbb71dfa91/02GJOREquestions",
 };
 
 function getQuestionsUrl(countyCode: string) {
@@ -29,7 +30,7 @@ function getQuestionsUrl(countyCode: string) {
 const COUNTIES = [
   { code: "00", name: "VITE", desc: "epistemologi, vitenskapsteori, skeptisisme" },
   { code: "01", name: "VÆRE", desc: "ontologi, virkelighet, metafysikk" },
-  // { code: "02", name: "GJØRE", desc: "etikk, moral, samfunnsfilosofi" },
+  { code: "02", name: "GJØRE", desc: "etikk, moral, samfunnsfilosofi" },
 ];
 
 // Legg til en farge for valgt kategori
@@ -300,73 +301,22 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111", padding: 16 }}>
-      {/* Tittel + Lærefase-checkbox */}
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 8,
-        }}
-      >
+      {/* Helt enkel hvit tittel uten bakgrunn eller gradient */}
+      <View style={{ marginTop: 10, marginBottom: 0, alignSelf: "center" }}>
         <Text
           style={{
-            fontSize: 34,
-            fontWeight: "800",
-            color: "#fff",
+            fontSize: 48,
+            fontWeight: "bold",
             textAlign: "center",
-            marginRight: 12,
+            letterSpacing: 2,
+            color: "#fff",
+            textShadowColor: "#222",
+            textShadowOffset: { width: 2, height: 2 },
+            textShadowRadius: 8,
           }}
         >
           ExPhilQuiz
         </Text>
-
-        {/* Bytt ut knapp med checkbox */}
-        <TouchableOpacity
-          onPress={() => {
-            setLearnMode((s) => !s);
-          }}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginLeft: 10,
-          }}
-          activeOpacity={0.8}
-        >
-          <View
-            style={{
-              width: 22,
-              height: 22,
-              borderRadius: 4,
-              borderWidth: 2,
-              borderColor: "#4da6ff",
-              backgroundColor: learnMode ? "#4da6ff" : "#222",
-              justifyContent: "center",
-              alignItems: "center",
-              marginRight: 6,
-            }}
-          >
-            {learnMode && (
-              <View
-                style={{
-                  width: 12,
-                  height: 12,
-                  backgroundColor: "#fff",
-                  borderRadius: 2,
-                }}
-              />
-            )}
-          </View>
-          <Text
-            style={{
-              color: "#4da6ff",
-              fontSize: 14,
-              fontWeight: "700",
-            }}
-          >
-            {learnMode ? "Fjerne svartips" : "Svartips"}
-          </Text>
-        </TouchableOpacity>
       </View>
 
       {/* Kategori-knapper og beskrivelse */}
@@ -421,11 +371,57 @@ export default function App() {
         </Text>
       </View>
 
-      {/* Besvart */}
-      <View style={{ alignItems: "center", marginBottom: 16, marginTop: 18 }}>
+      {/* Besvart + Svartips-checkbox på samme linje */} 
+      <View style={{ alignItems: "center", marginBottom: 16, marginTop: 18, flexDirection: "row", justifyContent: "center" }}>
         <Text style={{ color: "#ddd", fontSize: 17 }}>
           Besvart {answered} av {totalQuestions}
         </Text>
+        {/* Svartips-checkbox rett bak besvart-tekst */}
+        <TouchableOpacity
+          onPress={() => {
+            setLearnMode((s) => !s);
+          }}
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginLeft: 14,
+          }}
+          activeOpacity={0.8}
+        >
+          <View
+            style={{
+              width: 22,
+              height: 22,
+              borderRadius: 4,
+              borderWidth: 2,
+              borderColor: "#4da6ff",
+              backgroundColor: learnMode ? "#4da6ff" : "#222",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 6,
+            }}
+          >
+            {learnMode && (
+              <View
+                style={{
+                  width: 12,
+                  height: 12,
+                  backgroundColor: "#fff",
+                  borderRadius: 2,
+                }}
+              />
+            )}
+          </View>
+          <Text
+            style={{
+              color: "#4da6ff",
+              fontSize: 12,
+              fontWeight: "700",
+            }}
+          >
+            {learnMode ? "Fjerne svartips" : "Svartips"}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       {/* Riktige / Lest / Feil */}

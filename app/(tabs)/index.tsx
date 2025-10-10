@@ -315,7 +315,7 @@ export default function App() {
             textShadowRadius: 8,
           }}
         >
-          ExPhilQuiz
+          ExPhil Quiz
         </Text>
       </View>
 
@@ -374,7 +374,7 @@ export default function App() {
       {/* Besvart + Svartips-checkbox på samme linje */} 
       <View style={{ alignItems: "center", marginBottom: 16, marginTop: 18, flexDirection: "row", justifyContent: "center" }}>
         <Text style={{ color: "#ddd", fontSize: 17 }}>
-          Besvart {answered} av {totalQuestions}
+          {answered} av {totalQuestions}
         </Text>
         {/* Svartips-checkbox rett bak besvart-tekst */}
         <TouchableOpacity
@@ -434,7 +434,7 @@ export default function App() {
         }}
       >
         <View style={{ alignItems: "flex-start" }}>
-          <Text style={{ color: "#ddd", fontSize: 18 }}>Riktige:</Text>
+          <Text style={{ color: "#ddd", fontSize: 18 }}>Korrekt:</Text>
           <Text style={{ color: "green", fontSize: 40, fontWeight: "900" }}>
             {progress}
           </Text>

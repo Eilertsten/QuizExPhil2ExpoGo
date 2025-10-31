@@ -110,6 +110,7 @@ function normalizeQuestions(raw: any[]): Question[] {
 
 export default function App() {
   const [showStartScreen, setShowStartScreen] = useState(true);
+  const [isQuizMode, setIsQuizMode] = useState(true); // true = Quiz-modus, false = Lære-modus
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
   const [remainingQuestions, setRemainingQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
@@ -164,6 +165,7 @@ export default function App() {
   };
 
   const startQuizMode = () => {
+    setIsQuizMode(true);
     setLearnMode(false);
     setShowStartScreen(false);
     if (allQuestions.length === 0) {
@@ -172,7 +174,8 @@ export default function App() {
   };
 
   const startLearnMode = () => {
-    setLearnMode(true);
+    setIsQuizMode(false);
+    setLearnMode(false); // Lære-modus skal ikke ha learnMode aktivt automatisk
     setShowStartScreen(false);
     if (allQuestions.length === 0) {
       fetchQuestionsForCounty(selectedCounty);
@@ -551,57 +554,83 @@ export default function App() {
         </Text>
       </View>
 
-      {/* Besvart + Svartips-checkbox på samme linje */} 
+      {/* Besvart + Svartips-checkbox på samme linje eller correctIndex i Lære-modus */} 
       <View style={{ alignItems: "center", marginBottom: 16, marginTop: 18, flexDirection: "row", justifyContent: "center" }}>
         <Text style={{ color: "#ddd", fontSize: 17 }}>
           {answered} av {totalQuestions}
         </Text>
-        {/* Svartips-checkbox rett bak besvart-tekst */}
-        <TouchableOpacity
-          onPress={() => {
-            setLearnMode((s) => !s);
-          }}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginLeft: 14,
-          }}
-          activeOpacity={0.8}
-        >
+        
+        {/* I Quiz-modus: Svartips-checkbox */}
+        {isQuizMode && (
+          <TouchableOpacity
+            onPress={() => {
+              setLearnMode((s) => !s);
+            }}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginLeft: 14,
+            }}
+            activeOpacity={0.8}
+          >
+            <View
+              style={{
+                width: 22,
+                height: 22,
+                borderRadius: 4,
+                borderWidth: 2,
+                borderColor: "#4da6ff",
+                backgroundColor: learnMode ? "#4da6ff" : "#222",
+                justifyContent: "center",
+                alignItems: "center",
+                marginRight: 6,
+              }}
+            >
+              {learnMode && (
+                <View
+                  style={{
+                    width: 12,
+                    height: 12,
+                    backgroundColor: "#fff",
+                    borderRadius: 2,
+                  }}
+                />
+              )}
+            </View>
+            <Text
+              style={{
+                color: "#4da6ff",
+                fontSize: 12,
+                fontWeight: "700",
+              }}
+            >
+              {learnMode ? "Fjerne svartips" : "Svartips"}
+            </Text>
+          </TouchableOpacity>
+        )}
+        
+        {/* I Lære-modus: Vis correctIndex-verdien */}
+        {!isQuizMode && currentQuestion && (
           <View
             style={{
-              width: 22,
-              height: 22,
-              borderRadius: 4,
-              borderWidth: 2,
-              borderColor: "#4da6ff",
-              backgroundColor: learnMode ? "#4da6ff" : "#222",
-              justifyContent: "center",
-              alignItems: "center",
-              marginRight: 6,
+              marginLeft: 14,
+              backgroundColor: "#4da6ff",
+              paddingHorizontal: 12,
+              paddingVertical: 6,
+              borderRadius: 6,
             }}
           >
-            {learnMode && (
-              <View
-                style={{
-                  width: 12,
-                  height: 12,
-                  backgroundColor: "#fff",
-                  borderRadius: 2,
-                }}
-              />
-            )}
+            <Text
+              style={{
+                color: "#fff",
+                fontSize: 14,
+                fontWeight: "700",
+              }}
+            >
+              Korrekt svar: {currentQuestion.correctIndex}
+            </Text>
           </View>
-          <Text
-            style={{
-              color: "#4da6ff",
-              fontSize: 12,
-              fontWeight: "700",
-            }}
-          >
-            {learnMode ? "Fjerne svartips" : "Svartips"}
-          </Text>
-        </TouchableOpacity>
+        )}
       </View>
 
       {/* Riktige / Lest / Feil */}

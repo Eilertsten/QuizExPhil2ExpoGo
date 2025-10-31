@@ -494,6 +494,15 @@ export default function App() {
           >
             {learnMode ? "Fjerne svartips" : "Svartips"}
           </Text>
+          <Text
+            style={{
+              color: "#888",
+              fontSize: 11,
+              marginLeft: 6,
+            }}
+          >
+            ({currentQuestion.correctIndex})
+          </Text>
         </TouchableOpacity>
       </View>
 

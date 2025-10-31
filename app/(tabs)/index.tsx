@@ -168,18 +168,18 @@ export default function App() {
     setIsQuizMode(true);
     setLearnMode(false);
     setShowStartScreen(false);
-    if (allQuestions.length === 0) {
-      fetchQuestionsForCounty(selectedCounty);
-    }
+    setFinished(false);
+    // Alltid last inn spørsmål på nytt
+    fetchQuestionsForCounty(selectedCounty);
   };
 
   const startLearnMode = () => {
     setIsQuizMode(false);
     setLearnMode(false); // Lære-modus skal ikke ha learnMode aktivt automatisk
     setShowStartScreen(false);
-    if (allQuestions.length === 0) {
-      fetchQuestionsForCounty(selectedCounty);
-    }
+    setFinished(false);
+    // Alltid last inn spørsmål på nytt
+    fetchQuestionsForCounty(selectedCounty);
   };
 
   useEffect(() => {
@@ -264,9 +264,9 @@ export default function App() {
     setProgress(0);
     setAnswered(0);
     setSelectedIndex(null);
-    setCurrentQuestion(null);
-    setRemainingQuestions([]);
     setShowExplanation(false);
+    // Behold allQuestions, currentQuestion, og remainingQuestions
+    // slik at vi kan gjenbruke dem hvis brukeren starter på nytt
   };
 
   const changeCounty = (code: string) => {
@@ -498,7 +498,7 @@ export default function App() {
             textShadowRadius: 8,
           }}
         >
-          ExPhil Quiz
+          {isQuizMode ? "ExPhil Quiz" : "ExPhil lære"}
         </Text>
       </View>
 
@@ -510,6 +510,7 @@ export default function App() {
             flexWrap: "wrap",
             justifyContent: "center",
             marginBottom: 2,
+            alignItems: "center",
           }}
         >
           {COUNTIES.map((county) => (
@@ -540,6 +541,22 @@ export default function App() {
               </Text>
             </TouchableOpacity>
           ))}
+          
+          {/* Hus-ikon knapp for å gå tilbake til startsiden */}
+          <TouchableOpacity
+            onPress={goToStartScreen}
+            style={{
+              paddingHorizontal: 10,
+              paddingVertical: 6,
+              margin: 4,
+              borderRadius: 8,
+              backgroundColor: "#222",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 20 }}>🏠</Text>
+          </TouchableOpacity>
         </View>
         <Text
           style={{
@@ -627,7 +644,7 @@ export default function App() {
                 fontWeight: "700",
               }}
             >
-              Korrekt svar: {currentQuestion.correctIndex}
+              Korrekt svar: {currentQuestion.correctIndex + 1}
             </Text>
           </View>
         )}
@@ -731,7 +748,7 @@ export default function App() {
               }}
             >
               <Text style={{ color: "#fff", fontWeight: "700" }}>
-                Neste spørsmål ➜
+                {isQuizMode ? "Neste spørsmål ➜" : "Neste læring ➜"}
               </Text>
             </TouchableOpacity>
           )}

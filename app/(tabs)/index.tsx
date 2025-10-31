@@ -109,13 +109,14 @@ function normalizeQuestions(raw: any[]): Question[] {
 }
 
 export default function App() {
+  const [showStartScreen, setShowStartScreen] = useState(true);
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
   const [remainingQuestions, setRemainingQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
   const [progress, setProgress] = useState(0);
   const [answered, setAnswered] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [finished, setFinished] = useState(false);
   const [selectedCounty, setSelectedCounty] = useState("00");
   const [totalQuestions, setTotalQuestions] = useState(0);
@@ -162,9 +163,25 @@ export default function App() {
     }
   };
 
+  const startQuizMode = () => {
+    setLearnMode(false);
+    setShowStartScreen(false);
+    if (allQuestions.length === 0) {
+      fetchQuestionsForCounty(selectedCounty);
+    }
+  };
+
+  const startLearnMode = () => {
+    setLearnMode(true);
+    setShowStartScreen(false);
+    if (allQuestions.length === 0) {
+      fetchQuestionsForCounty(selectedCounty);
+    }
+  };
+
   useEffect(() => {
-    fetchQuestionsForCounty(selectedCounty);
-  }, [selectedCounty]);
+    // Ikke last inn spørsmål automatisk ved oppstart
+  }, []);
 
   function shuffleArray<T>(array: T[]): T[] {
     const arr = [...array];
@@ -238,6 +255,17 @@ export default function App() {
     resetGame(allQuestions);
   };
 
+  const goToStartScreen = () => {
+    setShowStartScreen(true);
+    setFinished(false);
+    setProgress(0);
+    setAnswered(0);
+    setSelectedIndex(null);
+    setCurrentQuestion(null);
+    setRemainingQuestions([]);
+    setShowExplanation(false);
+  };
+
   const changeCounty = (code: string) => {
     // Nullstill alt relevant slik at gammel question/correctIndex ikke henger igjen
     setSelectedCounty(code);
@@ -250,8 +278,10 @@ export default function App() {
     setSelectedIndex(null);
     setFinished(false);
     setShowExplanation(false);
-    setLearnMode(false);
     setLearnCount(0);
+    
+    // Last inn nye spørsmål for valgt kategori
+    fetchQuestionsForCounty(code);
   };
 
   // Ny funksjon for å håndtere kategori-bytte med bekreftelse
@@ -277,10 +307,73 @@ export default function App() {
   if (loading) {
     return (
       <SafeAreaView
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#111" }}
       >
-        <ActivityIndicator size="large" />
-        <Text style={{ marginTop: 10 }}>Laster spørsmål...</Text>
+        <ActivityIndicator size="large" color="#fff" />
+        <Text style={{ marginTop: 10, color: "#fff" }}>Laster spørsmål...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  if (showStartScreen) {
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#111",
+          padding: 16,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 48,
+            fontWeight: "bold",
+            textAlign: "center",
+            letterSpacing: 2,
+            color: "#fff",
+            textShadowColor: "#222",
+            textShadowOffset: { width: 2, height: 2 },
+            textShadowRadius: 8,
+            marginBottom: 80,
+          }}
+        >
+          ExPhil Quiz
+        </Text>
+
+        <TouchableOpacity
+          onPress={startQuizMode}
+          style={{
+            backgroundColor: "#a259ff",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            marginBottom: 20,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Quiz
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={startLearnMode}
+          style={{
+            backgroundColor: "#4da6ff",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Lære
+          </Text>
+        </TouchableOpacity>
       </SafeAreaView>
     );
   }
@@ -322,7 +415,19 @@ export default function App() {
           <Text style={{ color: "#fff", fontSize: 18 }}>Start på nytt</Text>
         </TouchableOpacity>
 
-        <Text style={{ color: "#aaa", marginVertical: 10 }}>eller</Text>
+        <TouchableOpacity
+          onPress={goToStartScreen}
+          style={{
+            backgroundColor: "#a259ff",
+            padding: 14,
+            borderRadius: 12,
+            marginBottom: 10,
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 18 }}>Tilbake til startsiden</Text>
+        </TouchableOpacity>
+
+        <Text style={{ color: "#aaa", marginVertical: 10 }}>eller bytt kategori</Text>
 
         <View
           style={{
@@ -495,15 +600,6 @@ export default function App() {
             }}
           >
             {learnMode ? "Fjerne svartips" : "Svartips"}
-          </Text>
-          <Text
-            style={{
-              color: "#888",
-              fontSize: 11,
-              marginLeft: 6,
-            }}
-          >
-            ({currentQuestion.correctIndex})
           </Text>
         </TouchableOpacity>
       </View>

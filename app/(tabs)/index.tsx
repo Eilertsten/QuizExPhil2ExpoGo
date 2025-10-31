@@ -37,6 +37,75 @@ const COUNTIES = [
 const SELECTED_COLOR = "#a259ff"; // Lilla
 const UNSELECTED_COLOR = "#bbb";
 
+// Normaliserer og validerer correctIndex fra datasettet
+function normalizeQuestions(raw: any[]): Question[] {
+  const prelim = (raw || []).map((q) => {
+    const options: string[] = Array.isArray(q?.options) ? q.options : [];
+    let idx = Number.isFinite(q?.correctIndex)
+      ? Number(q.correctIndex)
+      : parseInt(String(q?.correctIndex ?? ""), 10);
+
+    return {
+      question: String(q?.question ?? ""),
+      options,
+      idx,
+      correctexplation:
+        q?.correctexplation ?? q?.correctExplanation ?? q?.explanation ?? "",
+      category: q?.category,
+    };
+  });
+
+  // Heuristikk: noen datasett kan være 1-basert (1..n)
+  const hasZero = prelim.some((p) => p.idx === 0);
+  const allWithinOneBasedRange = prelim.every(
+    (p) =>
+      Number.isInteger(p.idx) &&
+      p.idx >= 1 &&
+      p.idx <= (p.options?.length ?? 0)
+  );
+
+  const normalized = prelim.map((p) => {
+    let idx = p.idx;
+
+    // Dersom alt ser 1-basert ut, flytt til 0-basert
+    if (!hasZero && allWithinOneBasedRange) {
+      idx = idx - 1;
+    }
+
+    // Rett opp spesialtilfeller: idx === options.length (klart 1-basert på siste element)
+    if (p.options && idx === p.options.length) {
+      idx = Math.max(0, p.options.length - 1);
+    }
+
+    // Klem innen rekkevidde
+    if (!Number.isInteger(idx)) idx = 0;
+    if (idx < 0) idx = 0;
+    if (p.options && idx > p.options.length - 1) {
+      idx = Math.max(0, p.options.length - 1);
+    }
+
+    return {
+      question: p.question,
+      options: p.options,
+      correctIndex: idx,
+      correctexplation: p.correctexplation,
+      category: p.category,
+    } as Question;
+  });
+
+  // Filtrer bort ugyldige
+  return normalized.filter(
+    (q) =>
+      q &&
+      q.question &&
+      Array.isArray(q.options) &&
+      q.options.length > 0 &&
+      Number.isInteger(q.correctIndex) &&
+      q.correctIndex >= 0 &&
+      q.correctIndex < q.options.length
+  );
+}
+
 export default function App() {
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
   const [remainingQuestions, setRemainingQuestions] = useState<Question[]>([]);
@@ -60,26 +129,26 @@ export default function App() {
       const res = await fetch(url);
       const raw = await res.json();
 
-      let flat: Question[] = [];
+      let flatAny: any[] = [];
       if (Array.isArray(raw)) {
-        flat = raw;
+        flatAny = raw;
       } else if (raw && typeof raw === "object") {
         Object.values(raw).forEach((v) => {
-          if (Array.isArray(v)) flat = flat.concat(v as Question[]);
+          if (Array.isArray(v)) flatAny = flatAny.concat(v as any[]);
         });
       }
 
-      flat = flat.filter(
-        (q) =>
-          q &&
-          typeof q.question === "string" &&
-          Array.isArray(q.options) &&
-          typeof q.correctIndex === "number"
-      );
+      const normalized = normalizeQuestions(flatAny);
 
-      setAllQuestions(flat);
-      setTotalQuestions(flat.length);
-      resetGame(flat);
+      setAllQuestions(normalized);
+      setTotalQuestions(normalized.length);
+      resetGame(normalized);
+
+      // Enkel verifikasjon i loggen
+      console.log(
+        `Loaded ${countyCode} questions: ${normalized.length}. Sample correctIndex:`,
+        normalized[0]?.correctIndex
+      );
     } catch (err) {
       console.error("Kunne ikke hente spørsmål:", err);
       setAllQuestions([]);
@@ -168,8 +237,12 @@ export default function App() {
   };
 
   const changeCounty = (code: string) => {
+    // Nullstill alt relevant slik at gammel question/correctIndex ikke henger igjen
     setSelectedCounty(code);
-    // Nullstill alle tellere og læringsmodus og forklaring
+    setCurrentQuestion(null);
+    setRemainingQuestions([]);
+    setTotalQuestions(0);
+
     setProgress(0);
     setAnswered(0);
     setSelectedIndex(null);
@@ -421,18 +494,6 @@ export default function App() {
           >
             {learnMode ? "Fjerne svartips" : "Svartips"}
           </Text>
-          {learnMode && currentQuestion && (
-            <Text
-              style={{
-                color: "#aaa",
-                fontSize: 12,
-                fontWeight: "600",
-                marginLeft: 6,
-              }}
-            >
-              ({currentQuestion.correctIndex})
-            </Text>
-          )}
         </TouchableOpacity>
       </View>
 
@@ -467,14 +528,19 @@ export default function App() {
 
       {/* Alternativer */}
       {currentQuestion.options.map((opt, idx) => {
+        // Beskyttelse dersom correctIndex skulle være utenfor range
+        const safeCorrectIndex = Math.min(
+          Math.max(currentQuestion.correctIndex, 0),
+          currentQuestion.options.length - 1
+        );
+
         let backgroundColor = "#333";
         if (!learnMode) {
           if (selectedIndex !== null) {
-            if (idx === currentQuestion.correctIndex) backgroundColor = "green";
+            if (idx === safeCorrectIndex) backgroundColor = "green";
             else if (idx === selectedIndex) backgroundColor = "red";
           }
         }
-        // Ikke vis riktig svar i grønt i svartips-modus
         return (
           <TouchableOpacity
             key={idx}

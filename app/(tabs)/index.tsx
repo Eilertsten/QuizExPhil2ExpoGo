@@ -331,7 +331,7 @@ export default function App() {
       >
         <Text
           style={{
-            fontSize: 48,
+            fontSize: 38,
             fontWeight: "bold",
             textAlign: "center",
             letterSpacing: 2,
@@ -342,7 +342,7 @@ export default function App() {
             marginBottom: 80,
           }}
         >
-          ExPhil Quiz
+          EXAMEN{"\n"}PHILOSOPHICUM
         </Text>
 
         <TouchableOpacity
@@ -644,7 +644,7 @@ export default function App() {
                 fontWeight: "700",
               }}
             >
-              Korrekt svar: {currentQuestion.correctIndex + 1}
+              Korrekt svar her er nr. {currentQuestion.correctIndex + 1}
             </Text>
           </View>
         )}

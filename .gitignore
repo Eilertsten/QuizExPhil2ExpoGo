@@ -41,10 +41,7 @@ app-example
 # generated native folders
 /ios
 /android
-NotaterOgJSON/VITE - 176 spm.json
-NotaterOgJSON/VÆREspm.txt
-NotaterOgJSON/VITEspm.txt
-NotaterOgJSON/GJØREspm.txt
+NotaterOgJSON/
 npc_code.txt
 ExPhilChatGPTchat.docx
 ~$PhilChatGPTchat.docx

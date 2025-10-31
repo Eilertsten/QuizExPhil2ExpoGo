@@ -19,9 +19,11 @@ type Question = {
 
 const QUESTION_URLS: Record<string, string> = {
   "00": "https://gist.githubusercontent.com/Eilertsten/08dcc97a97b9aaf12227eabe093d6c93/raw/be79d9d6526f6fdb03d9dfec8ba90331b9c71900/00VITEquestions",
-  "01": "https://gist.githubusercontent.com/Eilertsten/dbd23601d9c34b653cf34831e53bb848/raw/0356a8bf9fe14373fc1d9ee216e41601d1835966/01VEAREquestions",
-  "02": "https://gist.githubusercontent.com/Eilertsten/ce530f1002c7bb5bf4473da10de2bf98/raw/b8d0ad74d0e11e807196efc37b4480fbb71dfa91/02GJOREquestions",
+  "01": "https://gist.githubusercontent.com/Eilertsten/3a8761beb3662ebde9cbfaf2832f4d2a/raw/9ddfc133baac7d79b7c320d755804fa17cc29d9f/01VEAREquestions",
+  "02": "https://gist.githubusercontent.com/Eilertsten/d96d0697cffd04d87ab0876287452c02/raw/0cb5065aa280357d6bbe207e042aa67b3d9c9c1f/02GJOREquestions",
 };
+
+//Ta alltid å slett JSON filen og lag den på nytt hver endringer og deretter klikk på knappen Raw og henter dennye linken. :)
 
 function getQuestionsUrl(countyCode: string) {
   return QUESTION_URLS[countyCode] || QUESTION_URLS["00"];

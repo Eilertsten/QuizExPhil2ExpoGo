@@ -15,12 +15,13 @@ type Question = {
   correctIndex: number;
   correctexplation?: string;
   category?: string;
+  subcategory?: string;
 };
 
 const QUESTION_URLS: Record<string, string> = {
-  "00": "https://gist.githubusercontent.com/Eilertsten/5bd1ebd093d6d786fa66801d48abddee/raw/676abe52f43ccefd2cc4b5f04e8918b4de246a23/00VITEquestions",
-  "01": "https://gist.githubusercontent.com/Eilertsten/9066da238f51f25e9cc7ab9a6ca57851/raw/809afa3f14cb00d131f3297a7e2ec50350bd1407/01VEAREquestions",
-  "02": "https://gist.githubusercontent.com/Eilertsten/a30841aeb694312a5c76317924b6b757/raw/fb428abb86438c64c5cafe29f05ed9f42eb8534a/02GJOREquestions"
+  "00": "https://gist.githubusercontent.com/Eilertsten/85a25274b278a8992dddf8ede4bd5e63/raw/84984a729416b17428f1170acb81a85efb7e8734/00VITEquestionsSub",
+  "01": "https://gist.githubusercontent.com/Eilertsten/ae0daf8954b57a3c95430bc8e378490e/raw/75d3b2b742d61bb6a385430f5c39699532698de3/01VEAREquestionsSub",
+  "02": "https://gist.githubusercontent.com/Eilertsten/84dd14fc0afd494cda1398eed02681f1/raw/443ee56f31c24f8d4836f97702f97c0b60262644/02GJOREquestionsSub"
 };
 
 //Ta alltid å slett JSON filen og lag den på nytt hver endringer og deretter klikk på knappen Raw og henter dennye linken. :)
@@ -54,6 +55,7 @@ function normalizeQuestions(raw: any[]): Question[] {
       correctexplation:
         q?.correctexplation ?? q?.correctExplanation ?? q?.explanation ?? "",
       category: q?.category,
+      subcategory: q?.subcategory,
     };
   });
 
@@ -92,6 +94,7 @@ function normalizeQuestions(raw: any[]): Question[] {
       correctIndex: idx,
       correctexplation: p.correctexplation,
       category: p.category,
+      subcategory: p.subcategory,
     } as Question;
   });
 

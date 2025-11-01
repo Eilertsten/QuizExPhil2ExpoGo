@@ -18,9 +18,9 @@ type Question = {
 };
 
 const QUESTION_URLS: Record<string, string> = {
-  "00": "https://gist.githubusercontent.com/Eilertsten/08dcc97a97b9aaf12227eabe093d6c93/raw/be79d9d6526f6fdb03d9dfec8ba90331b9c71900/00VITEquestions",
-  "01": "https://gist.githubusercontent.com/Eilertsten/3a8761beb3662ebde9cbfaf2832f4d2a/raw/9ddfc133baac7d79b7c320d755804fa17cc29d9f/01VEAREquestions",
-  "02": "https://gist.githubusercontent.com/Eilertsten/d96d0697cffd04d87ab0876287452c02/raw/0cb5065aa280357d6bbe207e042aa67b3d9c9c1f/02GJOREquestions",
+  "00": "https://gist.githubusercontent.com/Eilertsten/5bd1ebd093d6d786fa66801d48abddee/raw/676abe52f43ccefd2cc4b5f04e8918b4de246a23/00VITEquestions",
+  "01": "https://gist.githubusercontent.com/Eilertsten/9066da238f51f25e9cc7ab9a6ca57851/raw/809afa3f14cb00d131f3297a7e2ec50350bd1407/01VEAREquestions",
+  "02": "https://gist.githubusercontent.com/Eilertsten/a30841aeb694312a5c76317924b6b757/raw/fb428abb86438c64c5cafe29f05ed9f42eb8534a/02GJOREquestions"
 };
 
 //Ta alltid å slett JSON filen og lag den på nytt hver endringer og deretter klikk på knappen Raw og henter dennye linken. :)

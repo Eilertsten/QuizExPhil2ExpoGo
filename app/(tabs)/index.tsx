@@ -19,8 +19,8 @@ type Question = {
 };
 
 const QUESTION_URLS: Record<string, string> = {
-  "00": "https://gist.githubusercontent.com/Eilertsten/85a25274b278a8992dddf8ede4bd5e63/raw/84984a729416b17428f1170acb81a85efb7e8734/00VITEquestionsSub",
-  "01": "https://gist.githubusercontent.com/Eilertsten/ae0daf8954b57a3c95430bc8e378490e/raw/75d3b2b742d61bb6a385430f5c39699532698de3/01VEAREquestionsSub",
+  "00": "https://gist.githubusercontent.com/Eilertsten/85a25274b278a8992dddf8ede4bd5e63/raw/d63f813585bc73f8c5dbf5a44ff184b3882c5775/00VITEquestionsSub",
+  "01": "https://gist.githubusercontent.com/Eilertsten/b8904a4beb91048bcf3dbf8e85e0c816/raw/c3d388b8fe43585f649148551ca51b501bac5226/01VEAREquestionsSub",
   "02": "https://gist.githubusercontent.com/Eilertsten/84dd14fc0afd494cda1398eed02681f1/raw/443ee56f31c24f8d4836f97702f97c0b60262644/02GJOREquestionsSub"
 };
 

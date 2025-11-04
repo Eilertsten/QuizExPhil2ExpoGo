@@ -108,16 +108,18 @@ export default function FilosofDetaljScreen() {
           alignItems: "flex-start",
           paddingVertical: 16,
           paddingHorizontal: 16,
+          paddingTop: 60,
+          marginTop: 20,
           position: "relative",
         }}
       >
         <TouchableOpacity
           onPress={() => router.back()}
-          style={{ padding: 8, position: "absolute", left: 16, top: 16, zIndex: 1 }}
+          style={{ padding: 8, position: "absolute", left: 16, top: 98, zIndex: 1 }}
         >
           <Text style={{ color: "#fff", fontSize: 28 }}>←</Text>
         </TouchableOpacity>
-        <View style={{ flex: 1, alignItems: "center", marginTop: 2 }}>
+        <View style={{ flex: 1, alignItems: "center" }}>
           <Text
             style={{
               color: "#fff",
@@ -131,7 +133,7 @@ export default function FilosofDetaljScreen() {
           <Text
             style={{
               color: "#fff",
-              fontSize: 29,
+              fontSize: 34,
               fontWeight: "bold",
               textAlign: "center",
               letterSpacing: 1,

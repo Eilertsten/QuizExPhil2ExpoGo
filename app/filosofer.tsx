@@ -91,6 +91,7 @@ export default function FilosoferScreen() {
           justifyContent: "center",
           paddingVertical: 20,
           paddingHorizontal: 16,
+          paddingTop: 30,
           paddingBottom: 10,
           position: "relative",
         }}
@@ -100,6 +101,7 @@ export default function FilosoferScreen() {
           style={{
             position: "absolute",
             left: 16,
+            top: 38,
             padding: 8,
           }}
         >
@@ -113,7 +115,7 @@ export default function FilosoferScreen() {
             textAlign: "center",
           }}
         >
-          FILOSOFER
+          Filosofer
         </Text>
       </View>
 

@@ -67,6 +67,7 @@ export default function ExTipsScreen() {
           justifyContent: "center",
           paddingVertical: 20,
           paddingHorizontal: 16,
+          paddingTop: 30,
           paddingBottom: 10,
           position: "relative",
         }}
@@ -76,6 +77,7 @@ export default function ExTipsScreen() {
           style={{
             position: "absolute",
             left: 16,
+            top: 38,
             padding: 8,
           }}
         >

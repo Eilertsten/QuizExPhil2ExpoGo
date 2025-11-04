@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import React from "react";
+import { useFocusEffect, useRouter } from "expo-router";
+import React, { useCallback, useState } from "react";
 import {
     SafeAreaView,
     ScrollView,
@@ -46,10 +46,26 @@ const PHILOSOPHERS = [
   { id: 26, name: "Singer", fullName: "Peter Singer", importance: "notable" },
 ];
 
+// Global visited philosophers set
+const visitedPhilosophers = new Set<string>();
+
 export default function FilosoferScreen() {
   const router = useRouter();
+  const [visited, setVisited] = useState<Set<string>>(new Set());
 
-  const getButtonColor = (importance: string) => {
+  // Update visited state when screen comes into focus
+  useFocusEffect(
+    useCallback(() => {
+      setVisited(new Set(visitedPhilosophers));
+    }, [])
+  );
+
+  const getButtonColor = (importance: string, philosopherName: string) => {
+    // If visited, return gray
+    if (visited.has(philosopherName)) {
+      return "#555";
+    }
+    
     switch (importance) {
       case "top10":
         return "#a259ff"; // Purple for top 10
@@ -115,11 +131,14 @@ export default function FilosoferScreen() {
             <TouchableOpacity
               key={philosopher.id}
               onPress={() => {
-                // TODO: Navigate to philosopher detail page
-                console.log(`Selected: ${philosopher.fullName}`);
+                visitedPhilosophers.add(philosopher.fullName);
+                router.push({
+                  pathname: "/filosof-detalj",
+                  params: { name: philosopher.fullName },
+                });
               }}
               style={{
-                backgroundColor: getButtonColor(philosopher.importance),
+                backgroundColor: getButtonColor(philosopher.importance, philosopher.fullName),
                 paddingHorizontal: 16,
                 paddingVertical: 12,
                 borderRadius: 8,

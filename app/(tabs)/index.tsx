@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -112,6 +113,7 @@ function normalizeQuestions(raw: any[]): Question[] {
 }
 
 export default function App() {
+  const router = useRouter();
   const [showStartScreen, setShowStartScreen] = useState(true);
   const [isQuizMode, setIsQuizMode] = useState(true); // true = Quiz-modus, false = Lære-modus
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
@@ -384,8 +386,7 @@ export default function App() {
 
         <TouchableOpacity
           onPress={() => {
-            // TODO: Implement Filosofer functionality
-            Alert.alert("Filosofer", "Denne funksjonen kommer snart!");
+            router.push("/filosofer");
           }}
           style={{
             backgroundColor: "#00d4aa",

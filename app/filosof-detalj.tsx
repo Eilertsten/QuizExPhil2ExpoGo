@@ -1,46 +1,37 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-// Philosopher data extracted from the markdown file
-const PHILOSOPHER_DATA: Record<string, any> = {
-  "René Descartes": {
-    name: "René Descartes",
-    firstName: "René",
-    lastName: "Descartes",
-    years: "1596-1650",
-    epoke: "Tidlig moderne filosofi (1600-tallet)",
-    fagfelt: "Epistemologi, Metafysikk, Rasjonalisme",
-    representerer: "Moderne filosofis grunnlegger, Substansdualisme",
-    omFilosofen: `René Descartes kalles ofte "moderne filosofis far" fordi han brøt radikalt med middelalderens tankesett og innførte en ny metode for å søke sikker kunnskap. Som ung soldat hadde han en serie drømmer som inspirerte ham til å vie sitt liv til filosofi og matematikk. Descartes var ikke bare filosof, men også en strålende matematiker som oppfant det koordinatsystemet vi bruker i dag. Hans mest kjente innsikt kom gjennom radikal tvil: ved å tvile på alt - sansene, matematikken, til og med om han var våken eller sov - fant han ett uomtvistelig punkt: "Jeg tenker, altså er jeg" (cogito ergo sum). Dette ble fundamentet for hans filosofi. Descartes hevdet at mennesket består av to helt forskjellige substanser: kropp (materie) og sjel (tanke), noe som skapte det berømte kropp-sjel-problemet som filosofer fremdeles diskuterer.`,
-    viktigsteBidrag: [
-      "Cogito ergo sum (\"Jeg tenker, altså er jeg\")",
-      "Metodisk tvil",
-      "Substansdualisme (kropp og sjel)",
-      "Res cogitans og res extensa",
-      "Gudsbevis"
-    ],
-    kjenteSitater: [
-      "\"Cogito ergo sum\"",
-      "\"Jeg tviler, derfor tenker jeg, derfor er jeg\"",
-      "Den onde demon som tankeeksperiment",
-      "Drømmeargumentet"
-    ],
-    viktigForEksamen: [
-      "Radikal tvil som metode",
-      "Første filosofi og sikker kunnskap",
-      "Interaksjonsproblem mellom kropp og sjel",
-      "Meditasjonene"
-    ]
-  },
-  // Add more philosophers as needed
-};
+// Import philosopher data from JSON file
+import philosopherDataJson from "../NotaterOgJSON/Filosofer/ExPhil_Filosofer.json";
+
+// Transform JSON data to match expected format
+const PHILOSOPHER_DATA: Record<string, any> = {};
+philosopherDataJson.filosofer.forEach((filosof: any) => {
+  const nameParts = filosof.navn.split(" ");
+  const firstName = nameParts.slice(0, -1).join(" ");
+  const lastName = nameParts[nameParts.length - 1];
+  
+  PHILOSOPHER_DATA[filosof.navn] = {
+    name: filosof.navn,
+    firstName: firstName,
+    lastName: lastName,
+    years: filosof.årstall,
+    epoke: filosof.epoke,
+    fagfelt: Array.isArray(filosof.fagfelt) ? filosof.fagfelt.join(", ") : filosof.fagfelt,
+    representerer: Array.isArray(filosof.representerer) ? filosof.representerer.join(", ") : filosof.representerer,
+    omFilosofen: filosof.omFilosofen,
+    viktigsteBidrag: filosof.viktigsteBidrag || [],
+    kjenteSitater: filosof.kjenteSitaterKonsepter || [],
+    viktigForEksamen: filosof.viktigForEksamen || []
+  };
+});
 
 interface CollapsibleSectionProps {
   title: string;

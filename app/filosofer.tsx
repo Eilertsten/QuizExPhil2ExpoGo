@@ -1,13 +1,16 @@
 import { useFocusEffect, useRouter } from "expo-router";
 import React, { useCallback, useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
+// Import philosopher data to ensure consistency
+
+// Create philosopher list with importance levels
 const PHILOSOPHERS = [
   // TOPP 10 - ABSOLUTT VIKTIGST
   { id: 3, name: "Aristoteles", fullName: "Aristoteles", importance: "top10" },

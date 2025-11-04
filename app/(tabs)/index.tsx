@@ -363,7 +363,7 @@ export default function App() {
           }}
         >
           <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
-            Quiz
+            ExPhil Quiz
           </Text>
         </TouchableOpacity>
 
@@ -380,7 +380,7 @@ export default function App() {
           }}
         >
           <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
-            Lære
+            ExPhil Lære
           </Text>
         </TouchableOpacity>
 
@@ -393,12 +393,31 @@ export default function App() {
             paddingHorizontal: 60,
             paddingVertical: 20,
             borderRadius: 12,
+            marginBottom: 20,
             width: "80%",
             alignItems: "center",
           }}
         >
           <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
             Filosofer
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            router.push("/extips");
+          }}
+          style={{
+            backgroundColor: "#ff6b35",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Ex forberedelser
           </Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -508,8 +527,28 @@ export default function App() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111", padding: 16 }}>
-      {/* Helt enkel hvit tittel uten bakgrunn eller gradient */}
-      <View style={{ marginTop: 10, marginBottom: 0, alignSelf: "center" }}>
+      {/* Header med tilbake-pil */}
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingVertical: 10,
+          paddingHorizontal: 0,
+          position: "relative",
+          marginBottom: 0,
+        }}
+      >
+        <TouchableOpacity
+          onPress={goToStartScreen}
+          style={{
+            position: "absolute",
+            left: 0,
+            padding: 8,
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 28 }}>←</Text>
+        </TouchableOpacity>
         <Text
           style={{
             fontSize: 48,
@@ -565,22 +604,6 @@ export default function App() {
               </Text>
             </TouchableOpacity>
           ))}
-          
-          {/* Hus-ikon knapp for å gå tilbake til startsiden */}
-          <TouchableOpacity
-            onPress={goToStartScreen}
-            style={{
-              paddingHorizontal: 10,
-              paddingVertical: 6,
-              margin: 4,
-              borderRadius: 8,
-              backgroundColor: "#222",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 20 }}>🏠</Text>
-          </TouchableOpacity>
         </View>
         <Text
           style={{

@@ -372,12 +372,32 @@ export default function App() {
             paddingHorizontal: 60,
             paddingVertical: 20,
             borderRadius: 12,
+            marginBottom: 20,
             width: "80%",
             alignItems: "center",
           }}
         >
           <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
             Lære
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            // TODO: Implement Filosofer functionality
+            Alert.alert("Filosofer", "Denne funksjonen kommer snart!");
+          }}
+          style={{
+            backgroundColor: "#00d4aa",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Filosofer
           </Text>
         </TouchableOpacity>
       </SafeAreaView>

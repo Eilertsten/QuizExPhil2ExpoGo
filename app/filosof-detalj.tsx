@@ -12,6 +12,8 @@ import {
 const PHILOSOPHER_DATA: Record<string, any> = {
   "René Descartes": {
     name: "René Descartes",
+    firstName: "René",
+    lastName: "Descartes",
     years: "1596-1650",
     epoke: "Tidlig moderne filosofi (1600-tallet)",
     fagfelt: "Epistemologi, Metafysikk, Rasjonalisme",
@@ -112,17 +114,44 @@ export default function FilosofDetaljScreen() {
       <View
         style={{
           flexDirection: "row",
-          alignItems: "center",
+          alignItems: "flex-start",
           paddingVertical: 16,
           paddingHorizontal: 16,
+          position: "relative",
         }}
       >
         <TouchableOpacity
           onPress={() => router.back()}
-          style={{ padding: 8, marginRight: 8 }}
+          style={{ padding: 8, position: "absolute", left: 16, top: 16, zIndex: 1 }}
         >
           <Text style={{ color: "#fff", fontSize: 28 }}>←</Text>
         </TouchableOpacity>
+        <View style={{ flex: 1, alignItems: "center", marginTop: 2 }}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 18,
+              fontWeight: "400",
+              textAlign: "center",
+            }}
+          >
+            {philosopher.firstName}
+          </Text>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 29,
+              fontWeight: "bold",
+              textAlign: "center",
+              letterSpacing: 1,
+            }}
+          >
+            {philosopher.lastName.toUpperCase()}
+          </Text>
+          <Text style={{ color: "#aaa", fontSize: 18, marginTop: 4, textAlign: "center" }}>
+            ({philosopher.years})
+          </Text>
+        </View>
       </View>
 
       <ScrollView
@@ -131,19 +160,6 @@ export default function FilosofDetaljScreen() {
       >
         {/* Main Info */}
         <View style={{ marginBottom: 24 }}>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 28,
-              fontWeight: "bold",
-              marginBottom: 8,
-            }}
-          >
-            {philosopher.name}
-          </Text>
-          <Text style={{ color: "#aaa", fontSize: 18, marginBottom: 16 }}>
-            ({philosopher.years})
-          </Text>
 
           <View style={{ marginBottom: 8 }}>
             <Text style={{ color: "#4da6ff", fontSize: 16, fontWeight: "600" }}>
@@ -174,7 +190,7 @@ export default function FilosofDetaljScreen() {
         </View>
 
         {/* Collapsible Sections */}
-        <CollapsibleSection title="Om filosofen" defaultExpanded={true}>
+        <CollapsibleSection title="Om filosofen" defaultExpanded={false}>
           <Text style={{ color: "#ddd", fontSize: 15, lineHeight: 24 }}>
             {philosopher.omFilosofen}
           </Text>

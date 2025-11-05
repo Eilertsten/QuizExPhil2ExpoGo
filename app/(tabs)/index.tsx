@@ -405,6 +405,25 @@ export default function App() {
 
         <TouchableOpacity
           onPress={() => {
+            router.push("/filosofer-quiz");
+          }}
+          style={{
+            backgroundColor: "#7c3aed",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            marginBottom: 20,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Filosofer Quiz
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
             router.push("/extips");
           }}
           style={{

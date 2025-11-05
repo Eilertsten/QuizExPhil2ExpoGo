@@ -33,8 +33,12 @@ export default function FilosoferQuizScreen() {
   const [randomPhilosophers, setRandomPhilosophers] = useState<string[]>([]);
   const [selectedPhilosopher, setSelectedPhilosopher] = useState<string | null>(null);
   const [displayItems, setDisplayItems] = useState<string[]>([]);
+  const [answered, setAnswered] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
 
-  useEffect(() => {
+  const loadNewQuestion = () => {
     // Velg 3 tilfeldige filosofer
     const shuffled = [...PHILOSOPHERS].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 3);
@@ -56,7 +60,35 @@ export default function FilosoferQuizScreen() {
     } else {
       setDisplayItems(philosopherInfo.viktigsteBidrag);
     }
+    
+    // Reset answered state
+    setAnswered(false);
+    setSelectedAnswer(null);
+  };
+
+  useEffect(() => {
+    loadNewQuestion();
   }, []);
+
+  const handleAnswer = (philosopher: string) => {
+    if (answered) return; // Ikke tillat flere svar
+    
+    setAnswered(true);
+    setSelectedAnswer(philosopher);
+    
+    if (philosopher === selectedPhilosopher) {
+      setCorrectCount(prev => prev + 1);
+    } else {
+      setWrongCount(prev => prev + 1);
+    }
+  };
+
+  const getButtonColor = (philosopher: string) => {
+    if (!answered) return "#7c3aed";
+    if (philosopher === selectedPhilosopher) return "green";
+    if (philosopher === selectedAnswer) return "red";
+    return "#7c3aed";
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -101,17 +133,55 @@ export default function FilosoferQuizScreen() {
         style={{ flex: 1, paddingHorizontal: 16 }}
         contentContainerStyle={{ paddingBottom: 20 }}
       >
+        {/* Score display */}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 10,
+            marginBottom: 20,
+          }}
+        >
+          <View style={{ alignItems: "flex-start" }}>
+            <Text style={{ color: "#ddd", fontSize: 16 }}>Korrekt:</Text>
+            <Text style={{ color: "green", fontSize: 32, fontWeight: "900" }}>
+              {correctCount}
+            </Text>
+          </View>
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={{ color: "#ddd", fontSize: 16 }}>Feil:</Text>
+            <Text style={{ color: "red", fontSize: 32, fontWeight: "900" }}>
+              {wrongCount}
+            </Text>
+          </View>
+        </View>
+
+        {/* Informasjon om valgt filosof */}
+        {selectedPhilosopher && displayItems.length > 0 && (
+          <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
+            <Text style={{ color: "#7c3aed", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+              Hvem tilhører denne informasjonen?
+            </Text>
+            {displayItems.map((item, index) => (
+              <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
+                <Text style={{ color: "#7c3aed", marginRight: 8 }}>•</Text>
+                <Text style={{ color: "#ddd", fontSize: 15, flex: 1 }}>
+                  {item}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
+
         {/* Filosof knapper */}
-        <View style={{ marginTop: 20, gap: 12 }}>
+        <View style={{ gap: 12 }}>
           {randomPhilosophers.map((philosopher, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => {
-                // TODO: Implementer quiz logikk
-                console.log(`Valgt: ${philosopher}`);
-              }}
+              onPress={() => handleAnswer(philosopher)}
+              disabled={answered}
               style={{
-                backgroundColor: "#7c3aed",
+                backgroundColor: getButtonColor(philosopher),
                 paddingHorizontal: 20,
                 paddingVertical: 16,
                 borderRadius: 12,
@@ -125,28 +195,24 @@ export default function FilosoferQuizScreen() {
           ))}
         </View>
 
-        {/* Informasjon om valgt filosof */}
-        {selectedPhilosopher && displayItems.length > 0 && (
-          <View style={{ marginTop: 30, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
-            <Text style={{ color: "#7c3aed", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-              Viktig informasjon om {PHILOSOPHER_DATA[selectedPhilosopher].fullName}:
+        {/* Neste-knapp */}
+        {answered && (
+          <TouchableOpacity
+            onPress={loadNewQuestion}
+            style={{
+              marginTop: 20,
+              backgroundColor: "#4da6ff",
+              paddingHorizontal: 20,
+              paddingVertical: 16,
+              borderRadius: 12,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
+              Neste spørsmål ➜
             </Text>
-            {displayItems.map((item, index) => (
-              <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
-                <Text style={{ color: "#7c3aed", marginRight: 8 }}>•</Text>
-                <Text style={{ color: "#ddd", fontSize: 15, flex: 1 }}>
-                  {item}
-                </Text>
-              </View>
-            ))}
-          </View>
+          </TouchableOpacity>
         )}
-
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", marginTop: 50 }}>
-          <Text style={{ color: "#ddd", fontSize: 18, textAlign: "center" }}>
-            Filosofer Quiz kommer snart!
-          </Text>
-        </View>
       </ScrollView>
     </SafeAreaView>
   );

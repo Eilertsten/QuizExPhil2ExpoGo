@@ -22,11 +22,12 @@ philosopherDataJson.filosofer.forEach((filosof: any) => {
     lastName: lastName,
     viktigsteBidrag: filosof.viktigsteBidrag || [],
     kjenteSitater: filosof.kjenteSitaterKonsepter || [],
+    kategori: filosof.kategori || "VIKTIG",
   };
 });
 
 // Liste over filosofer (etternavn)
-const PHILOSOPHERS = Object.keys(PHILOSOPHER_DATA);
+const ALL_PHILOSOPHERS = Object.keys(PHILOSOPHER_DATA);
 
 export default function FilosoferQuizScreen() {
   const router = useRouter();
@@ -38,10 +39,39 @@ export default function FilosoferQuizScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [showPhilosopher, setShowPhilosopher] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(["TOPP 10"]);
+
+  // Toggle kategori valg
+  const toggleCategory = (category: string) => {
+    setSelectedCategories(prev => {
+      if (prev.includes(category)) {
+        // Fjern kategorien hvis den allerede er valgt
+        const newCategories = prev.filter(c => c !== category);
+        // Sørg for at minst én kategori er valgt
+        return newCategories.length > 0 ? newCategories : prev;
+      } else {
+        // Legg til kategorien
+        return [...prev, category];
+      }
+    });
+  };
+
+  // Filtrer filosofer basert på valgte kategorier
+  const getFilteredPhilosophers = () => {
+    return ALL_PHILOSOPHERS.filter(name => {
+      const category = PHILOSOPHER_DATA[name].kategori;
+      return selectedCategories.includes(category);
+    });
+  };
 
   const loadNewQuestion = () => {
-    // Velg 3 tilfeldige filosofer
-    const shuffled = [...PHILOSOPHERS].sort(() => Math.random() - 0.5);
+    // Velg 3 tilfeldige filosofer fra filtrert liste
+    const filteredPhilosophers = getFilteredPhilosophers();
+    if (filteredPhilosophers.length < 3) {
+      // Ikke nok filosofer i filteret
+      return;
+    }
+    const shuffled = [...filteredPhilosophers].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, 3);
     setRandomPhilosophers(selected);
     
@@ -61,7 +91,7 @@ export default function FilosoferQuizScreen() {
 
   useEffect(() => {
     loadNewQuestion();
-  }, []);
+  }, [selectedCategories]);
 
   const handleAnswer = (philosopher: string) => {
     if (answered) return; // Ikke tillat flere svar
@@ -126,6 +156,46 @@ export default function FilosoferQuizScreen() {
         style={{ flex: 1, paddingHorizontal: 16 }}
         contentContainerStyle={{ paddingBottom: 20 }}
       >
+        {/* Kategori filter */}
+        <View style={{ marginTop: 10, marginBottom: 20 }}>
+          <View style={{ flexDirection: "row", gap: 8, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+            {[
+              { label: "Topp 10", value: "TOPP 10", color: "#a259ff" },
+              { label: "Svært viktige", value: "SVÆRT VIKTIG", color: "#4da6ff" },
+              { label: "Viktige", value: "VIKTIG", color: "#00d4aa" }
+            ].map((category) => {
+              // Beregn antall filosofer i denne kategorien
+              const count = ALL_PHILOSOPHERS.filter(name => 
+                PHILOSOPHER_DATA[name].kategori === category.value
+              ).length;
+              
+              const isSelected = selectedCategories.includes(category.value);
+              
+              return (
+                <TouchableOpacity
+                  key={category.value}
+                  onPress={() => toggleCategory(category.value)}
+                  style={{
+                    backgroundColor: isSelected ? category.color : "#333",
+                    paddingHorizontal: 16,
+                    paddingVertical: 10,
+                    borderRadius: 8,
+                    borderWidth: 2,
+                    borderColor: isSelected ? category.color : "#555",
+                  }}
+                >
+                  <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                    {category.label} ({isSelected ? count : 0})
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+            <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600", marginLeft: 8 }}>
+              Valgte filosofer: {getFilteredPhilosophers().length}
+            </Text>
+          </View>
+        </View>
+
         {/* Score display */}
         <View
           style={{
@@ -153,7 +223,7 @@ export default function FilosoferQuizScreen() {
         {selectedPhilosopher && displayItems.length > 0 && (
           <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
             <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-              Filosofens <Text style={{ color: "#4da6ff", fontSize: 20 }}>{showPhilosopher ? selectedPhilosopher.toUpperCase() : "[NAVN]"}</Text> viktigste bidrag:
+              Filosofen <Text style={{ color: "#4da6ff", fontSize: 20 }}>{showPhilosopher ? selectedPhilosopher.toUpperCase() : "[NAVN]"}</Text> viktigste bidrag:
             </Text>
             {displayItems.map((item, index) => (
               <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
@@ -239,10 +309,70 @@ export default function FilosoferQuizScreen() {
             }}
           >
             <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
-              Neste spørsmål ➜
+              Neste ➜
             </Text>
           </TouchableOpacity>
         )}
+
+        {/* Legend */}
+        <View
+          style={{
+            marginTop: 30,
+            paddingHorizontal: 16,
+            paddingVertical: 12,
+            backgroundColor: "#1a1a1a",
+            borderRadius: 8,
+          }}
+        >
+          <Text
+            style={{
+              color: "#ddd",
+              fontSize: 14,
+              fontWeight: "600",
+              marginBottom: 8,
+            }}
+          >
+            Fargekoder:
+          </Text>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View
+                style={{
+                  width: 16,
+                  height: 16,
+                  backgroundColor: "#a259ff",
+                  borderRadius: 4,
+                  marginRight: 6,
+                }}
+              />
+              <Text style={{ color: "#aaa", fontSize: 12 }}>Topp 10</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View
+                style={{
+                  width: 16,
+                  height: 16,
+                  backgroundColor: "#4da6ff",
+                  borderRadius: 4,
+                  marginRight: 6,
+                }}
+              />
+              <Text style={{ color: "#aaa", fontSize: 12 }}>Svært viktige</Text>
+            </View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <View
+                style={{
+                  width: 16,
+                  height: 16,
+                  backgroundColor: "#00d4aa",
+                  borderRadius: 4,
+                  marginRight: 6,
+                }}
+              />
+              <Text style={{ color: "#aaa", fontSize: 12 }}>Viktige</Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -113,6 +113,22 @@ export default function FilosoferQuizScreen() {
     return "#7c3aed";
   };
 
+  // Få farge basert på kategori
+  const getCategoryColor = (philosopherName: string | null) => {
+    if (!philosopherName) return "#fff";
+    const category = PHILOSOPHER_DATA[philosopherName]?.kategori;
+    switch (category) {
+      case "TOPP 10":
+        return "#a259ff";
+      case "SVÆRT VIKTIG":
+        return "#4da6ff";
+      case "VIKTIG":
+        return "#00d4aa";
+      default:
+        return "#fff";
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
       {/* Header */}
@@ -177,22 +193,19 @@ export default function FilosoferQuizScreen() {
                   onPress={() => toggleCategory(category.value)}
                   style={{
                     backgroundColor: isSelected ? category.color : "#333",
-                    paddingHorizontal: 16,
-                    paddingVertical: 10,
+                    paddingHorizontal: 8,
+                    paddingVertical: 6,
                     borderRadius: 8,
                     borderWidth: 2,
                     borderColor: isSelected ? category.color : "#555",
                   }}
                 >
-                  <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
-                    {category.label} ({isSelected ? count : 0})
+                  <Text style={{ color: "#fff", fontSize: 13, fontWeight: "600" }}>
+                    {category.label} - {isSelected ? count : 0}
                   </Text>
                 </TouchableOpacity>
               );
             })}
-            <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600", marginLeft: 8 }}>
-              Valgte filosofer: {getFilteredPhilosophers().length}
-            </Text>
           </View>
         </View>
 
@@ -223,7 +236,7 @@ export default function FilosoferQuizScreen() {
         {selectedPhilosopher && displayItems.length > 0 && (
           <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
             <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-              Filosofen <Text style={{ color: "#4da6ff", fontSize: 20 }}>{showPhilosopher ? selectedPhilosopher.toUpperCase() : "[NAVN]"}</Text> viktigste bidrag:
+              Filosofen <Text style={{ color: "#fff", backgroundColor: showPhilosopher ? getCategoryColor(selectedPhilosopher) : "transparent", fontSize: 20, paddingHorizontal: 12, paddingVertical: showPhilosopher ? 4 : 0, borderRadius: 6 }}>{showPhilosopher ? ` ${selectedPhilosopher} ` : " [NAVN] "}</Text> viktigste bidrag:
             </Text>
             {displayItems.map((item, index) => (
               <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>

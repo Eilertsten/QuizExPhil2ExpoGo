@@ -37,6 +37,7 @@ export default function FilosoferQuizScreen() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
+  const [showPhilosopher, setShowPhilosopher] = useState(false);
 
   const loadNewQuestion = () => {
     // Velg 3 tilfeldige filosofer
@@ -64,6 +65,7 @@ export default function FilosoferQuizScreen() {
     // Reset answered state
     setAnswered(false);
     setSelectedAnswer(null);
+    setShowPhilosopher(false);
   };
 
   useEffect(() => {
@@ -170,6 +172,42 @@ export default function FilosoferQuizScreen() {
                 </Text>
               </View>
             ))}
+            
+            {/* Checkbox for å vise filosof */}
+            <TouchableOpacity
+              onPress={() => setShowPhilosopher(!showPhilosopher)}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 16,
+                paddingTop: 12,
+                borderTopWidth: 1,
+                borderTopColor: "#444",
+              }}
+            >
+              <View
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderWidth: 2,
+                  borderColor: "#7c3aed",
+                  borderRadius: 4,
+                  marginRight: 12,
+                  backgroundColor: showPhilosopher ? "#7c3aed" : "transparent",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {showPhilosopher && (
+                  <Text style={{ color: "#fff", fontSize: 16, fontWeight: "bold" }}>
+                    ✓
+                  </Text>
+                )}
+              </View>
+              <Text style={{ color: "#ddd", fontSize: 16 }}>
+                Vis filosof{showPhilosopher ? `: ${selectedPhilosopher}` : ""}
+              </Text>
+            </TouchableOpacity>
           </View>
         )}
 

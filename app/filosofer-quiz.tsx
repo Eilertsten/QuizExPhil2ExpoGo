@@ -1,15 +1,15 @@
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 // Import philosopher data from JSON file
-import philosopherDataJson from "../NotaterOgJSON/Filosofer/ExPhil_Filosofer.json";
+import philosopherDataJson from "../content/json/ExPhil_Filosofer.json";
 
 // Transform JSON data to match expected format
 const PHILOSOPHER_DATA: Record<string, any> = {};

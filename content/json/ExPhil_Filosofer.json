@@ -1,0 +1,836 @@
+{
+  "filosofer": [
+    {
+      "navn": "Immanuel Kant",
+      "årstall": "1724-1804",
+      "epoke": "Opplysningstiden (1700-tallet)",
+      "fagfelt": [
+        "Etikk (pliktetikk)",
+        "Erkjennelsesteori",
+        "Metafysikk"
+      ],
+      "representerer": [
+        "Deontologisk etikk",
+        "Transcendental idealisme"
+      ],
+      "omFilosofen": "Immanuel Kant regnes som en av de aller viktigste filosofene i historien. Han levde hele sitt liv i Königsberg (dagens Kaliningrad) og var kjent for sin ekstremt strukturerte livsstil - byens innbyggere kunne angivelig stille klokkene sine etter hans daglige spaserturer. Til tross for sitt tilbaketrukne liv, revolusjonerte Kant filosofien med sitt forsøk på å forene rasjonalisme og empirisme. Hans berømte \"kopernikanske vending\" i filosofien betyr at vi ikke lenger skal spørre hvordan vi tilpasser oss verden, men hvordan verden tilpasser seg oss gjennom våre erkjennelseskategorier. I etikken er Kant mest kjent for sin pliktetikk, der moral ikke handler om konsekvenser, men om å følge universelle prinsipper basert på fornuft. Hans spørsmål \"Hva kan jeg vite? Hva bør jeg gjøre? Hva kan jeg håpe?\" oppsummerer filosofiens sentrale områder.",
+      "viktigsteBidrag": [
+        "Det kategoriske imperativ",
+        "Skillet mellom fenomen og noumenon (ting i seg selv)",
+        "A priori og a posteriori kunnskap",
+        "Autonomi som moralsk grunnlag",
+        "Syntetiske a priori-dommer"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Handle kun etter den maksime som du samtidig kan ville skal bli en allmenn lov",
+        "Handle slik at du alltid behandler mennesket, både i din egen person og i enhver annens person, alltid samtidig som mål og aldri bare som middel",
+        "Sapere aude! (Våg å være klok/tenke selv)"
+      ],
+      "viktigForEksamen": [
+        "Formålsformuleringen vs. universaliseringsformuleringen",
+        "Forskjell på hypotetisk og kategorisk imperativ",
+        "Perfekte og uperfekte plikter",
+        "Autonomi vs. heteronomi"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "Platon",
+      "årstall": "ca. 428-348 f.Kr.",
+      "epoke": "Antikken (gresk filosofi)",
+      "fagfelt": [
+        "Metafysikk",
+        "Epistemologi",
+        "Etikk",
+        "Politisk filosofi"
+      ],
+      "representerer": [
+        "Idealisme",
+        "Rasjonalisme"
+      ],
+      "omFilosofen": "Platon var elev av Sokrates og lærer for Aristoteles, og står sentralt i vestens filosofiske tradisjon. Etter at hans læremester Sokrates ble henrettet av det athenske demokratiet, grunnla Platon Akademiet - Europas første universitet - som eksisterte i nesten 900 år. Platon skrev sine filosofiske verk i dialogform, med Sokrates som hovedperson, noe som gjør dem levende og tilgjengelige selv i dag. Hans mest kjente bidrag er idélæren, som hevder at den virkelige verden består av evige, uforanderlige ideer eller former, mens den materielle verden kun er ufullkomne kopier. Hulelignelsen er hans mest berømte fortelling, der mennesker som sitter lenket i en hule kun ser skygger på veggen, ikke virkeligheten selv. Platon var også opptatt av politikk og mente at de klokeste - filosofene - burde styre staten.",
+      "viktigsteBidrag": [
+        "Idélæren (teorien om former)",
+        "Hulelignelsen",
+        "Tredeling av sjelen",
+        "Den ideelle stat",
+        "Sokratisk dialog som metode"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Filosofien er en forberedelse til døden",
+        "Ideen om \"det gode\" som høyeste form",
+        "Tre klasser i staten: voktere, soldater, arbeidere",
+        "Filosofkonger skal styre"
+      ],
+      "viktigForEksamen": [
+        "Forskjell på idéverden og sanseverden",
+        "Hulelignelsens betydning",
+        "Forholdet mellom kunnskap og mening",
+        "Rettferdighet i staten og i sjelen"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "Aristoteles",
+      "årstall": "384-322 f.Kr.",
+      "epoke": "Antikken (gresk filosofi)",
+      "fagfelt": [
+        "Metafysikk",
+        "Etikk (dydsetikk)",
+        "Logikk",
+        "Naturfilosofi"
+      ],
+      "representerer": [
+        "Teleologisk tenkning",
+        "Empirisme"
+      ],
+      "omFilosofen": "Aristoteles var Platons mest berømte elev, men utviklet en filosofi som på mange områder var motsatt av lærerens. Mens Platon mente at den virkelige verden var idéenes verden, hevdet Aristoteles at virkeligheten finnes her og nå, i den materielle verden vi kan studere. Han var en utrolig allsidig tenkere som skrev om alt fra biologi og fysikk til etikk og politikk. I 13 år var han lærer for den unge Alexander den store. Aristoteles' betydning for vestens intellektuelle utvikling kan knapt overvurderes - han systematiserte logikken, grunnla biologi som vitenskap, og hans tanker dominerte middelalderens lærde verden. I etikken er han kjent for dydslæren og ideen om \"den gyldne middelvei\" - at dyd ligger i balansen mellom to ekstremer. Hans tankesystem var så omfattende at det tok nesten 2000 år før vitenskapen kunne frigjøre seg fra det.",
+      "viktigsteBidrag": [
+        "Dydsetikk og den gyldne middelvei",
+        "Eudaimonia (det gode liv/blomstring)",
+        "De fire årsaker (materiell, formell, bevirkende, final)",
+        "Akt og potens",
+        "Praktisk visdom (phronesis)"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Mennesket er et politisk dyr",
+        "Vi er det vi gjentatte ganger gjør. Fortreffelighet er derfor ikke en handling, men en vane",
+        "Mot ligger mellom feighet og dumdristighet"
+      ],
+      "viktigForEksamen": [
+        "Den gyldne middelvei-prinsippet",
+        "Forskjell på intellektuelle og moralske dyder",
+        "Teleologisk naturforståelse",
+        "Form og materie (hylemorfisme)"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "René Descartes",
+      "årstall": "1596-1650",
+      "epoke": "Tidlig moderne filosofi (1600-tallet)",
+      "fagfelt": [
+        "Epistemologi",
+        "Metafysikk",
+        "Rasjonalisme"
+      ],
+      "representerer": [
+        "Moderne filosofis grunnlegger",
+        "Substansdualisme"
+      ],
+      "omFilosofen": "René Descartes kalles ofte \"moderne filosofis far\" fordi han brøt radikalt med middelalderens tankesett og innførte en ny metode for å søke sikker kunnskap. Som ung soldat hadde han en serie drømmer som inspirerte ham til å vie sitt liv til filosofi og matematikk. Descartes var ikke bare filosof, men også en strålende matematiker som oppfant det koordinatsystemet vi bruker i dag. Hans mest kjente innsikt kom gjennom radikal tvil: ved å tvile på alt - sansene, matematikken, til og med om han var våken eller sov - fant han ett uomtvistelig punkt: \"Jeg tenker, altså er jeg\" (cogito ergo sum). Dette ble fundamentet for hans filosofi. Descartes hevdet at mennesket består av to helt forskjellige substanser: kropp (materie) og sjel (tanke), noe som skapte det berømte kropp-sjel-problemet som filosofer fremdeles diskuterer.",
+      "viktigsteBidrag": [
+        "Cogito ergo sum (\"Jeg tenker, altså er jeg\")",
+        "Metodisk tvil",
+        "Substansdualisme (kropp og sjel)",
+        "Res cogitans og res extensa",
+        "Gudsbevis"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Cogito ergo sum",
+        "Jeg tviler, derfor tenker jeg, derfor er jeg",
+        "Den onde demon som tankeeksperiment",
+        "Drømmeargumentet"
+      ],
+      "viktigForEksamen": [
+        "Radikal tvil som metode",
+        "Første filosofi og sikker kunnskap",
+        "Interaksjonsproblem mellom kropp og sjel",
+        "Meditasjonene"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "David Hume",
+      "årstall": "1711-1776",
+      "epoke": "Opplysningstiden (1700-tallet)",
+      "fagfelt": [
+        "Epistemologi",
+        "Empirisme",
+        "Skeptisisme"
+      ],
+      "representerer": [
+        "Radikal empirisme",
+        "Naturalisme"
+      ],
+      "omFilosofen": "David Hume var en skotsk filosof som skrev sitt hovedverk \"A Treatise of Human Nature\" da han bare var 26 år gammel. Boken, som han kalte sitt livsverk, falt dessverre \"dødfødt fra pressen\" som han selv sa, men kom senere til å bli enormt innflytelsesrik. Hume tok empirismen - ideen om at all kunnskap kommer fra erfaring - til sin ytterste konsekvens, og konkluderte med at vi egentlig ikke kan vite så mye som vi tror. Hans berømte induksjonsproblem viser at vi ikke kan begrunne våre forventninger om fremtiden ut fra fortiden - det er bare vane og forventning. Hume angrep også forestillingen om årsak og virkning: vi ser bare at én ting følger etter en annen, ikke noen nødvendig forbindelse mellom dem. Hans tvilsom var så radikal at han selv innrømmet at filosofien gjorde ham melankolsk, og han måtte kurere seg med selskap og backgammon.",
+      "viktigsteBidrag": [
+        "Induksjonsproblemet",
+        "Kritikk av kausalitet",
+        "Is/Ought-gapet (Humes gaffel)",
+        "Bundle theory om selvet",
+        "Kritikk av rasjonell moral"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Man kan ikke utlede et 'bør' fra et 'er'",
+        "Vane og forventning som grunnlag for kausalitet",
+        "Fornuften er lidenskapenes slave",
+        "Humes gaffel: forhold av ideer vs. spørsmål om fakta"
+      ],
+      "viktigForEksamen": [
+        "Hvorfor kan vi ikke begrunne induksjon?",
+        "Kritikk av substansbegrepet",
+        "Impressions vs. ideas",
+        "Sentimentalisme i etikk"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "John Stuart Mill",
+      "årstall": "1806-1873",
+      "epoke": "1800-tallet (viktoriansk tid)",
+      "fagfelt": [
+        "Etikk (utilitarisme)",
+        "Politisk filosofi",
+        "Liberalisme"
+      ],
+      "representerer": [
+        "Konsekvensialisme",
+        "Liberal individualisme"
+      ],
+      "omFilosofen": "John Stuart Mill vokste opp under et ekstremt pedagogisk eksperiment ledet av sin far og Jeremy Bentham. Som treåring lærte han gresk, som åtteåring latin, og som tenåring hadde han lest mer filosofi enn de fleste gjør i løpet av hele livet. Dette intensive opplegget førte til et mentalt sammenbrudd da han var 20, og han måtte revurdere sitt liv og sin filosofi. Mill ble en lidenskapelig forsvarer av individuell frihet og skrev det berømte essayet \"On Liberty\" om frihetens grenser. Han videreutviklet Benthams utilitarisme ved å hevde at noen former for lykke er mer verdifulle enn andre - intellektuelle og moralske gleder er bedre enn rent fysiske. Hans berømte utsagn \"bedre å være et misfornøyd menneske enn en fornøyd gris\" oppsummerer dette. Mill var også en av sin tids fremste forsvarere av kvinners rettigheter og skrev \"The Subjection of Women\" i 1869.",
+      "viktigsteBidrag": [
+        "Kvalitativ utilitarisme",
+        "Harm principle (skadeprinsippet)",
+        "Forsvar for ytrings- og tankefrihet",
+        "Høyere vs. lavere nytelser",
+        "Om frihet (On Liberty)"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Bedre å være et misfornøyd menneske enn en fornøyd gris",
+        "Bedre å være en misfornøyd Sokrates enn en fornøyd narr",
+        "Frihetsprinsippet: staten kan bare gripe inn for å forhindre skade på andre"
+      ],
+      "viktigForEksamen": [
+        "Forskjell fra Benthams utilitarisme",
+        "Harm principle og frihetsbegrensning",
+        "Høyere vs. lavere nytelser",
+        "Regelutilitarisme vs. handlingsutilitarisme"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "John Rawls",
+      "årstall": "1921-2002",
+      "epoke": "1900-tallet (samtidsfilosofi)",
+      "fagfelt": [
+        "Politisk filosofi",
+        "Rettferdighetsteori"
+      ],
+      "representerer": [
+        "Liberal egalitarianisme",
+        "Kontraktualisme"
+      ],
+      "omFilosofen": "John Rawls gjenopplivet politisk filosofi som fag med sin bok \"A Theory of Justice\" i 1971, som anses som det viktigste verket i politisk filosofi på 1900-tallet. Rawls' liv var preget av tidlig tap - han mistet to av sine brødre som barn, noe som ga ham en dyp følelse av tilfeldighetens urettferdighet. Under andre verdenskrig tjenestegjorde han i Stillehavet og opplevde krigens grusomheter, noe som styrket hans brennende ønske om å skape et mer rettferdig samfunn. Hans berømte tankeeksperiment \"uvitenhetens slør\" ber oss tenke oss at vi skal velge rettferdighetsprinsipper uten å vite hvilken posisjon vi får i samfunnet - vil vi være rik eller fattig, mann eller kvinne, frisk eller syk. Rawls argumenterte for at rasjonelle personer bak dette sløret ville velge prinsipper som beskytter de dårligst stilte, fordi de selv kunne havne i den posisjonen.",
+      "viktigsteBidrag": [
+        "Uvitenhetens slør (veil of ignorance)",
+        "To rettferdighetsprinsipper",
+        "Differanseprinsippet",
+        "Reflektiv likevekt",
+        "Original position"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Justice as fairness (rettferdighet som rimelighet)",
+        "Bak uvitenhetens slør",
+        "Første prinsipp: like friheter",
+        "Andre prinsipp: rettferdige muligheter og differanseprinsippet"
+      ],
+      "viktigForEksamen": [
+        "Hva er uvitenhetens slør?",
+        "Hvorfor velges disse prinsippene?",
+        "Differanseprinsippet: når er ulikhet rettferdig?",
+        "Prioritetsregler mellom prinsippene"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "Jean-Paul Sartre",
+      "årstall": "1905-1980",
+      "epoke": "1900-tallet (eksistensialisme)",
+      "fagfelt": [
+        "Eksistensialisme",
+        "Fenomenologi",
+        "Etikk"
+      ],
+      "representerer": [
+        "Ateistisk eksistensialisme"
+      ],
+      "omFilosofen": "Jean-Paul Sartre var 1900-tallets mest kjente filosof og en sentral figur i det intellektuelle Paris etter andre verdenskrig. Han møttes daglig med sin livslange partner Simone de Beauvoir på kafeer som Café de Flore for å skrive og diskutere filosofi. Sartre deltok i motstanden under den tyske okkupasjonen og var politisk engasjert hele livet, noe som gjorde ham til en offentlig intellektuell stjerne. Hans eksistensialisme handler om menneskets radikale frihet: vi er \"dømt til frihet\" fordi vi ikke har noen forhåndsbestemt essens eller mening - vi må selv skape vår identitet gjennom våre valg. Dette gir oss både enorm frihet og et tungt ansvar. Sartre avviste Nobelprisen i litteratur i 1964 fordi han mente at en forfatter ikke skulle la seg institusjonalisere. Hans filosofi ble populær langt utenfor akademia og påvirket kunst, litteratur og populærkultur.",
+      "viktigsteBidrag": [
+        "\"Eksistensen går forut for essensen\"",
+        "Radikal frihet og ansvar",
+        "Selvbedrag (mauvaise foi/bad faith)",
+        "Mennesket er \"dømt til frihet\"",
+        "For-seg-væren og i-seg-væren"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Mennesket er dømt til frihet",
+        "Eksistensen går forut for essensen",
+        "Helvete, det er de andre",
+        "Vi er våre valg",
+        "Autentisitet vs. selvbedrag"
+      ],
+      "viktigForEksamen": [
+        "Hva betyr \"eksistensen går forut for essensen\"?",
+        "Radikal frihet og ansvar",
+        "Selvbedrag - hva er det?",
+        "Eksistensiell angst"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "Thomas Hobbes",
+      "årstall": "1588-1679",
+      "epoke": "Tidlig moderne filosofi (1600-tallet)",
+      "fagfelt": [
+        "Politisk filosofi",
+        "Samfunnskontrakt"
+      ],
+      "representerer": [
+        "Statsabsolutisme",
+        "Psykologisk egoisme"
+      ],
+      "omFilosofen": "Thomas Hobbes levde i en av Englands mest turbulente perioder, preget av borgerkrig mellom kongen og parlamentet. Han var så redd for vold og anarki at han brukte dette som utgangspunkt for sin politiske filosofi. Hobbes mente at mennesket i sin natur er egoistisk og voldelig, og at uten en sterk stat ville vi leve i en \"naturtilstand\" der det er \"alles krig mot alle\". Hans mor skal ha født ham for tidlig av frykt da den spanske armadaen truet England - og Hobbes sa senere at \"frykt og jeg ble født som tvillinger\". Hans hovedverk \"Leviathan\" (1651) er både et mesterverk i politisk filosofi og et imponerende retorisk dokument. Hobbes argumenterte kontroversielt for at borgerne må gi fra seg sin frihet til en absolutt hersker for å unngå kaos, noe som gjorde ham upopulær både hos kongetro og republikanere. Hans materialistiske verdensbilde var også radikalt for sin tid.",
+      "viktigsteBidrag": [
+        "Naturtilstanden: \"alles krig mot alle\"",
+        "Leviathan (staten som monster)",
+        "Samfunnskontrakten",
+        "Psykologisk egoisme",
+        "Naturrett og naturlov"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Alles krig mot alle (bellum omnium contra omnes)",
+        "Livet i naturtilstanden er \"ensomt, fattig, motbydelig, brutalt og kort\"",
+        "Leviathan som metafor for staten",
+        "Homo homini lupus (mennesket er ulv for mennesket)"
+      ],
+      "viktigForEksamen": [
+        "Hva kjennetegner naturtilstanden?",
+        "Hvorfor trengs en suveren?",
+        "Forskjell fra Locke og Rousseau",
+        "Naturrett vs. positiv rett"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "John Locke",
+      "årstall": "1632-1704",
+      "epoke": "Tidlig moderne filosofi (1600-tallet)",
+      "fagfelt": [
+        "Epistemologi",
+        "Politisk filosofi",
+        "Liberalisme"
+      ],
+      "representerer": [
+        "Empirisme",
+        "Liberal politisk teori"
+      ],
+      "omFilosofen": "John Locke regnes som liberalismens far og skrev tekster som direkte inspirerte både den amerikanske uavhengighetserklæringen og den franske revolusjonen. Som lege og diplomat hadde han førstehånds erfaring med både vitenskap og politikk. Locke levde i eksil i Nederland i flere år av frykt for forfølgelse på grunn av sine radikale politiske meninger. Hans ideer om at alle mennesker er født med naturlige rettigheter til \"liv, frihet og eiendom\" var revolusjonerende for sin tid. I erkjennelsesteorien var Locke en radikal empirist som hevdet at vi fødes som et blankt ark (tabula rasa), og at all kunnskap kommer fra erfaring. Han kjempet for religiøs toleranse i en tid da dette var kontroversiellt, og hevdet at staten ikke skulle blande seg i folks trosvalg. Lockes filosofi om begrensning av statsmakt og beskyttelse av individuelle rettigheter har formet det moderne demokratiet.",
+      "viktigsteBidrag": [
+        "Tabula rasa (tom tavle)",
+        "Naturrettigheter: liv, frihet, eiendom",
+        "Arbeidsteori om eiendom",
+        "Primær- og sekundæregenskaper",
+        "Rett til opprør"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Tabula rasa - sinnet er som en tom tavle",
+        "Liv, frihet og eiendom som naturrettigheter",
+        "Arbeid gir rett til eiendom",
+        "Simple og komplekse ideer"
+      ],
+      "viktigForEksamen": [
+        "Empirisme: all kunnskap fra erfaring",
+        "Hvordan oppstår eiendomsrett?",
+        "Primær vs. sekundæregenskaper",
+        "Forskjell fra Hobbes' samfunnskontrakt"
+      ],
+      "kategori": "TOPP 10"
+    },
+    {
+      "navn": "Sokrates",
+      "årstall": "ca. 470-399 f.Kr.",
+      "epoke": "Antikken (klassisk gresk filosofi)",
+      "fagfelt": [
+        "Etikk",
+        "Epistemologi"
+      ],
+      "representerer": [
+        "Sokratisk metode",
+        "Moralsk intellektualisme"
+      ],
+      "omFilosofen": "Sokrates skrev aldri ned noe selv, men er likevel en av de mest kjente filosofene gjennom tidene. Alt vi vet om ham kommer fra andre, særlig hans elev Platon. Sokrates vandret rundt i Athens gater og torg, der han engasjerte folk i samtaler som avslørte at de egentlig ikke visste det de trodde de visste. Han sammenlignet seg selv med en brems som plager en lat hest - hans oppgave var å vekke athenerne fra deres intellektuelle dvale. Sokrates' konstante stilling av kritiske spørsmål gjorde ham både elsket og hatet. Hans metode gikk ut på å late som om han selv ikke visste noe (sokratisk ironi), for deretter å avsløre andres uvitenhet gjennom logiske spørsmål. Dette gjorde makthaverne rasende, og i 399 f.Kr. ble han anklaget for å forderve ungdommen og ikke tro på byens guder. Sokrates kunne ha flyktet, men valgte å drikke giften og dø for sine prinsipper.",
+      "viktigsteBidrag": [
+        "Sokratisk metode (dialog og maieutikk)",
+        "\"Jeg vet at jeg intet vet\"",
+        "Dyd er kunnskap",
+        "Elenktisk metode",
+        "\"Det ugranskede liv er ikke verdt å leve\""
+      ],
+      "kjenteSitaterKonsepter": [
+        "Kjenn deg selv",
+        "Jeg vet at jeg intet vet",
+        "Det ugranskede liv er ikke verdt å leve",
+        "Ingen gjør ondt med vilje (moralsk intellektualisme)"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Jeremy Bentham",
+      "årstall": "1748-1832",
+      "epoke": "Opplysningstiden/tidlig 1800-tall",
+      "fagfelt": [
+        "Etikk (utilitarisme)",
+        "Rettsfilosofi"
+      ],
+      "representerer": [
+        "Kvantitativ utilitarisme",
+        "Konsekvensetikk"
+      ],
+      "omFilosofen": "Jeremy Bentham var et vidunderbarn som begynte å studere latin som treåring og startet på universitetet som tolvåring. Han var en radikal reformator som kjempet for kvinners rettigheter, avkriminalisering av homofili og dyrevelferd - synspunkter som var ekstremt kontroversielle på hans tid. Bentham utviklet utilitarismen - ideen om at handlinger skal bedømmes etter om de gir \"størst mulig lykke for størst mulig antall\". Han forsøkte til og med å lage en matematisk formel, den hedoniske kalkyle, for å beregne lykke og smerte. Bentham var også opptatt av fengselsreform og designet det berømte Panoptikon - et fengsel der alle innsatte kunne overvåkes fra ett sentralt punkt. I sitt testamente ba han om at kroppen hans skulle konserveres og stilles ut, noe den fremdeles er ved University College London, der hans \"auto-ikon\" sitter i et kabinett.",
+      "viktigsteBidrag": [
+        "Hedonisk kalkyle",
+        "\"Størst mulig lykke for flest mulig\"",
+        "Kvantitativ utilitarisme",
+        "Kritikk av naturrett",
+        "Panoptikon"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Natur har plassert menneskeheten under styret av to suverene mestere: smerte og nytelse",
+        "Størst mulig lykke for størst mulig antall",
+        "Alle nytelser er likeverdige (pushpin vs. poesi)"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Friedrich Nietzsche",
+      "årstall": "1844-1900",
+      "epoke": "Sent 1800-tall",
+      "fagfelt": [
+        "Etikk",
+        "Metafysikk",
+        "Eksistensialisme"
+      ],
+      "representerer": [
+        "Moralsk nihilisme",
+        "Perspektivisme"
+      ],
+      "omFilosofen": "Friedrich Nietzsche var en briljant og kontroversiell filosof hvis liv endte tragisk. Som 24-åring ble han professor i Basel, men hans helse var alltid skjør og han led av intense migrener. I 1889 fikk han et mentalt sammenbrudd (angivelig etter å ha sett en hest bli mishandlet) og tilbrakte sine siste 11 år i mental forvirring. Nietzsche skrev sine filosofiske verk i en poetisk og provoserende stil som brøt med akademisk tradisjon. Hans berømte utsagn \"Gud er død\" handler ikke om teologi, men om at tradisjonelle verdier og moralske fundamenter har kollapset i moderniteten. Nietzsche angrep kristendommens \"slavemoral\" som han mente fremmet svakhet, og forfektet i stedet en \"herremoral\" basert på styrke og livsbekreftelse. Hans begrep om \"vilje til makt\" og \"overmennesket\" ble senere misbrukt av nazistene, men Nietzsche selv foraktet antisemittisme og nasjonalisme.",
+      "viktigsteBidrag": [
+        "\"Gud er død\"",
+        "Overmennesket (Übermensch)",
+        "Vilje til makt",
+        "Herremoral vs. slavemoral",
+        "Evig gjenkomst",
+        "Genealogisk metode"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Gud er død, og vi har drept ham",
+        "Det som ikke dreper meg, gjør meg sterkere",
+        "Når du ser inn i avgrunnen, ser avgrunnen inn i deg",
+        "Omvurdering av alle verdier"
+      ],
+      "viktigForEksamen": [
+        "Hva betyr \"Gud er død\"?",
+        "Herremoral vs. slavemoral",
+        "Ressentiment",
+        "Overmennesket som ideal"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Martin Heidegger",
+      "årstall": "1889-1976",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Ontologi",
+        "Eksistensialisme",
+        "Fenomenologi"
+      ],
+      "representerer": [
+        "Fundamental ontologi"
+      ],
+      "omFilosofen": "Martin Heidegger er en av 1900-tallets mest innflytelsesrike, men også mest kontroversielle filosofer. Oppvokst i en katolsk familie i Sør-Tyskland, studerte han teologi før han vendte seg til filosofi. Hans hovedverk \"Sein und Zeit\" (Væren og tid) fra 1927 er enormt komplekst og har generert utallige tolkninger. Heidegger ville gjenopplive det grunnleggende spørsmålet: \"Hva betyr det at noe er?\" - et spørsmål han mente vestens filosofi hadde glemt siden grekerne. Hans mørke side er hans tilknytning til nazismen - han ble medlem av nazipartiet i 1933 og var en periode rektor ved universitetet i Freiburg under nazistisk styre. Etter krigen nektet han å ta tydelig avstand fra sin fortid, noe som har kastet skygge over hans filosofiske arv. Til tross for dette har hans tanker om autentisitet, teknologi og språkets rolle vært enormt innflytelsesrike.",
+      "viktigsteBidrag": [
+        "Dasein (væren-i-verden)",
+        "Væren-til-døden",
+        "Autentisitet vs. Forfall (das Man)",
+        "Værens spørsmål",
+        "Ontologisk differanse"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Språket er værens hus",
+        "Dasein som det værende som forholder seg til væren",
+        "Das Man (de/man)",
+        "Geworpenheit (kastethet)"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Søren Kierkegaard",
+      "årstall": "1813-1855",
+      "epoke": "1800-tallet",
+      "fagfelt": [
+        "Eksistensialisme",
+        "Religiøs filosofi"
+      ],
+      "representerer": [
+        "Kristen eksistensialisme"
+      ],
+      "omFilosofen": "Søren Kierkegaard var en melankolsk dansk filosof som levde i København og aldri reiste langt fra sin fødeby. Han var forlovet med Regine Olsen, men brøt forlovelsen på grunn av sine indre kvaler og følelse av utilstrekkelighet - dette ble et tema som gjennomsyret hele hans filosofi. Kierkegaard skrev mange av sine verk under pseudonymer, der hver forfatter representerte en bestemt livsanskuelse eller eksistensstadium. Han var en skarp kritiker av den danske kirke og Hegels filosofi, som han mente reduserte individet til et abstrakt begrep. Kierkegaard regnes som eksistensialismens far, selv om begrepet ikke eksisterte på hans tid. Hans dype analyser av angst, fortvilelse og det å måtte velge uten sikkerhet påvirket senere filosofer som Heidegger og Sartre. Kierkegaard døde som 42-åring, fattig og lite anerkjent, men har siden blitt en av filosofihistoriens mest leste tenkere.",
+      "viktigsteBidrag": [
+        "Tre eksistensstadier (estetisk, etisk, religiøst)",
+        "Angst som mulighetens svimmelhet",
+        "Troens paradoks",
+        "Subjektivitet er sannhet",
+        "Troens sprang"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Sannhet er subjektivitet",
+        "Livet må leves forlengs, men kan bare forstås baklengs",
+        "Enten-eller",
+        "Angst og fortvilelse"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Karl Popper",
+      "årstall": "1902-1994",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Vitenskapsteori",
+        "Politisk filosofi"
+      ],
+      "representerer": [
+        "Kritisk rasjonalisme"
+      ],
+      "omFilosofen": "Karl Popper var en østerriksk-britisk filosof som revolusjonerte vår forståelse av vitenskap og demokrati. Oppvokst i Wien under første verdenskrig, flyktet han fra nazismen til New Zealand og senere England. Popper opplevde totalitarismens grusomheter på nært hold og viet mye av sin filosofi til å forsvare det åpne samfunn mot autoritære ideologier. Hans viktigste bidrag til vitenskapsteori er falsifikasjonskriteriet: en teori er vitenskapelig bare hvis den kan motbevises. Dette står i kontrast til ideen om at vitenskap handler om å bevise teorier. Popper kritiserte Freud og Marx for å ha teorier som var så fleksible at de kunne forklare alt - og derfor ingenting. Hans \"Det åpne samfunn og dets fiender\" er et forsvar for liberal demokrati og kritikk av Platon, Hegel og Marx. Popper levde til han var 92 år og fortsatte å skrive og debattere til det siste.",
+      "viktigsteBidrag": [
+        "Falsifikasjonskriteriet",
+        "Demarkasjonsproblem",
+        "Det åpne samfunn",
+        "Kritikk av historisisme",
+        "Fallibilisme"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Falsifiserbarhet som vitenskapens kjennetegn",
+        "All life is problem-solving",
+        "Kritikk av Platon og Marx",
+        "Piecemeal social engineering"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Thomas Kuhn",
+      "årstall": "1922-1996",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Vitenskapsteori",
+        "Vitenskapshistorie"
+      ],
+      "representerer": [
+        "Historisk vitenskapsteori"
+      ],
+      "omFilosofen": "Thomas Kuhn var opprinnelig fysiker, men ble etter hvert en av de mest innflytelsesrike vitenskapsfilosofene på 1900-tallet. Hans bok \"The Structure of Scientific Revolutions\" (1962) endret fundamentalt hvordan vi forstår vitenskapelig fremgang. Kuhn vokste frem i en tid da mange trodde at vitenskap utviklet seg gjennom jevn akkumulering av kunnskap, men han viste at vitenskapens historie er preget av dramatiske brudd og revolusjoner. Begrepet \"paradigmeskifte\" - som han introduserte - har blitt så populært at det brukes overalt, ofte på måter Kuhn ikke ville kjent seg igjen i. Hans kontroversielle påstand om at ulike paradigmer er \"inkommensurable\" (usammenlignbare) skapte heftig debatt. Kritikere mente det førte til relativisme, men Kuhn insisterte på at vitenskap likevel representerer fremgang. Hans arbeid inspirerte også sosiologer og historikere til å studere vitenskap som en sosial praksis, ikke bare som ren logikk.",
+      "viktigsteBidrag": [
+        "Paradigmebegrepet",
+        "Vitenskapelige revolusjoner",
+        "Normalvitenskap",
+        "Inkommensurabilitet",
+        "Anomalier og kriser"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Paradigmeskifte",
+        "The Structure of Scientific Revolutions",
+        "Normalvitenskap vs. revolusjonær vitenskap",
+        "Gestaltwitch i paradigmeskifter"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Karl Marx",
+      "årstall": "1818-1883",
+      "epoke": "1800-tallet",
+      "fagfelt": [
+        "Politisk filosofi",
+        "Økonomi",
+        "Samfunnsfilosofi"
+      ],
+      "representerer": [
+        "Historisk materialisme",
+        "Kommunisme"
+      ],
+      "omFilosofen": "Karl Marx var en tysk filosof, økonom og revolusjonær hvis ideer formet hele det 20. århundre - både gjennom revolusjonene de inspirerte og reaksjonene de framkalte. Marx levde mye av sitt liv i fattigdom i London, støttet økonomisk av sin venn Friedrich Engels. Han tilbrakte dagene på British Museum bibliotek, der han studerte økonomi og kapitalismens historie. Marx mente at all historie var preget av klassekamp mellom undertrykkere og undertrykte. I kapitalismen mente han at arbeiderklassen ble \"fremmedgjort\" fra sitt arbeid fordi de ikke eide produksjonsmidlene eller produktene de skapte. Hans analyse av kapitalismens motsigelser i \"Das Kapital\" er fortsatt viktig, selv om hans profeti om dens kollaps ikke slo til som forventet. Marx skrev sammen med Engels \"Det kommunistiske manifest\" som avslutter med de berømte ordene: \"Proletarer i alle land, foren dere!\" Hans filosofi førte til både inspirasjonen for sosialdemokratiske velferdsstater og autoritære regimer.",
+      "viktigsteBidrag": [
+        "Historisk materialisme",
+        "Fremmedgjøring (alienation)",
+        "Klassekamp",
+        "Overskuddsteori",
+        "Basis og overbygning"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Verdens filosofer har tolket verden, poenget er å forandre den",
+        "Religion er folkets opium",
+        "Fra hver etter evne, til hver etter behov",
+        "Arbeidets fremmedgjøring"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Gottfried Wilhelm Leibniz",
+      "årstall": "1646-1716",
+      "epoke": "Tidlig moderne filosofi (1600-1700-tall)",
+      "fagfelt": [
+        "Metafysikk",
+        "Rasjonalisme",
+        "Matematikk"
+      ],
+      "representerer": [
+        "Rasjonalistisk optimisme"
+      ],
+      "omFilosofen": "Gottfried Wilhelm Leibniz var et av historiens største universalgenier - filosof, matematiker, vitenskapsmann, diplomat og jurist. Han oppfant infinitesimalregningen (kalkulus) uavhengig av Newton, utviklet et binært tallsystem som ble grunnlaget for moderne datamaskiner, og drømte om et universelt logisk språk som kunne løse alle filosofiske problemer gjennom beregning. Som diplomat reiste han rundt i Europa og korresponderte med datidens største tenkere. Leibniz utviklet en optimistisk metafysikk der han hevdet at \"vi lever i den beste av alle mulige verdener\" - en idé Voltaire senere latterliggjorde i romanen Candide. Hans monadologi beskriver universet som bestående av uendelig mange \"monader\" - enkle, ikke-materielle substanser som hver speiler hele universet fra sitt eget perspektiv. Leibniz døde som en glemt mann - bare hans sekretær møtte på begravelsen - men hans filosofi og matematikk har vært enormt innflytelsesrik.",
+      "viktigsteBidrag": [
+        "Monadologi",
+        "Prinsippet om tilstrekkelig grunn",
+        "Prinsippet om de uadskilleliges identitet",
+        "Beste av alle mulige verdener",
+        "Pre-etablert harmoni"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Vi lever i den beste av alle mulige verdener",
+        "Monader som \"vindusløse\"",
+        "Tilstrekkelig grunn for alt",
+        "Ontologisk optimisme"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Baruch Spinoza",
+      "årstall": "1632-1677",
+      "epoke": "Tidlig moderne filosofi (1600-tall)",
+      "fagfelt": [
+        "Metafysikk",
+        "Etikk",
+        "Rasjonalisme"
+      ],
+      "representerer": [
+        "Panteisme",
+        "Determinisme"
+      ],
+      "omFilosofen": "Baruch Spinoza vokste opp i det jødiske miljøet i Amsterdam, men ble ekskommunisert som 23-åring for sine radikale filosofiske synspunkter. Han levde resten av sitt liv som linseslipper, isolert fra det jødiske samfunnet men fri til å tenke og skrive. Spinoza utviklet en radikal monistisk metafysikk der han identifiserte Gud med naturen selv - \"Deus sive Natura\" (Gud eller naturen). Dette var en direkte utfordring til tradisjonell religiøs tro og ble ansett som ateisme av hans samtidige. Hans hovedverk Ethica er skrevet i geometrisk form med aksiomer, definisjoner og bevis, på samme måte som Euklids geometri. Spinoza mente at alt som skjer er nødvendig bestemt av naturlovene, og at menneskelig frihet ligger i å forstå og akseptere denne nødvendigheten. Han avviste at mennesket har fri vilje i tradisjonell forstand. Spinozas filosofi var enormt kontroversiell, men inspirerte senere tenkere som Hegel og Einstein.",
+      "viktigsteBidrag": [
+        "Substansmonisme: Deus sive Natura",
+        "Panteisme",
+        "Geometrisk metode i etikk",
+        "Determinisme",
+        "Intellektuell kjærlighet til Gud"
+      ],
+      "kjenteSitaterKonsepter": [
+        "Deus sive Natura (Gud eller Naturen)",
+        "Sub specie aeternitatis (fra evighetens synsvinkel)",
+        "Frihet er nødvendighetens innsikt",
+        "Alle ting følger av Guds natur"
+      ],
+      "kategori": "SVÆRT VIKTIG"
+    },
+    {
+      "navn": "Thomas Aquinas",
+      "årstall": "1225-1274",
+      "epoke": "Middelalderen (skolastikk)",
+      "fagfelt": [
+        "Teologi",
+        "Metafysikk",
+        "Naturrett"
+      ],
+      "representerer": [
+        "Kristen aristotelisme"
+      ],
+      "omFilosofen": "Thomas Aquinas, også kjent som \"den engelske lærer\" (Doctor Angelicus), var en italiensk dominikanermunk som skapte den mest omfattende syntesen mellom kristen teologi og aristotelisk filosofi. Som ung student ble han kalt \"den stumme okse\" av medstudenter på grunn av sin store kroppsbyggning og stillferdig natur, men læreren Albertus Magnus profeterte at \"denne oksen vil brøle så høyt at han vil høres over hele verden\". Aquinas tilbrakte store deler av livet med å undervise i Paris og skrive sitt monumentale verk Summa Theologica, som systematisk behandler teologiske og filosofiske spørsmål i spørsmål-svar-form. Han argumenterte for at tro og fornuft ikke står i motsetning til hverandre, men utfyller hverandre. Hans \"fem veier\" til å bevise Guds eksistens og hans naturrettstradisjon har vært fundamentale for katolsk tenkning. Aquinas døde på vei til kirkemøtet i Lyon, bare 49 år gammel.",
+      "viktigsteBidrag": [
+        "Fem veier til Gud",
+        "Naturrett og evig lov",
+        "Syntese av tro og fornuft",
+        "Essens og eksistens"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Jean-Jacques Rousseau",
+      "årstall": "1712-1778",
+      "epoke": "Opplysningstiden",
+      "fagfelt": [
+        "Politisk filosofi",
+        "Samfunnskontrakt"
+      ],
+      "representerer": [
+        "Demokratisk republikk"
+      ],
+      "omFilosofen": "Jean-Jacques Rousseau var en sveitsisk-fransk filosof hvis turbulente liv preget hans tenkning. Forlatt av faren som barn, levde han ustabilt som omreisende musiker, sekretær og privatlærer før han ble kjent som forfatter. Hans verk utløste store kontroverser - bøkene ble brent, og han måtte flykte fra både Frankrike og Sveits. Rousseau utviklet paranoide trekk senere i livet og brøt med tidligere venner som Diderot og Hume. Han forlot selv sine fem barn på barnehjem, men skrev samtidig om viktigheten av naturlig barneoppdragelse i Emile. Rousseaus ideer om folkesuvereniteten og at mennesket er født fritt men overalt ligger det i lenker, inspirerte den franske revolusjon. Hans romantiske bilde av den \"edle villmann\" og kritikk av sivilisasjonens fordervelse står i kontrast til opplysningstidens fremskrittsoptimisme. Rousseau døde ensom på landsbygda, men hans politiske filosofi endret verdenshistorien.",
+      "viktigsteBidrag": [
+        "Allmennviljen (volonté générale)",
+        "\"Mennesket er født fritt, men er overalt i lenker\"",
+        "Samfunnskontrakten",
+        "Den edle villmann"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "George Berkeley",
+      "årstall": "1685-1753",
+      "epoke": "Tidlig moderne filosofi",
+      "fagfelt": [
+        "Metafysikk",
+        "Epistemologi"
+      ],
+      "representerer": [
+        "Subjektiv idealisme"
+      ],
+      "omFilosofen": "George Berkeley var en irsk biskop og filosof som utviklet en av historiens mest radikale filosofiske posisjoner: at materie ikke eksisterer! Berkeley argumenterte at \"å være er å bli oppfattet\" (esse est percipi) - ting eksisterer kun som ideer i bevisstheten. Treet i skogen eksisterer kun fordi noen (eller Gud) oppfatter det. Dette var hans svar på materialismen og skeptisismen han så hos Locke og andre. Berkeley gjorde karriere både som filosof og kirkemannn, ble biskop i Cloyne i Irland, og skrev ikke bare filosofi men også om økonomi og medisin. Han forkjempet ideen om å grunnlegge et universitet i Bermuda for å utdanne kolonistenes barn og urbefolkning - et prosjekt som strandet økonomisk. Berkeley var en livlig debattant som utviklet sine ideer i dialogform, der han lot karakterer argumentere for og imot hans syn. Hans idealisme virker absurd for mange, men tvinger oss til å tenke grundig over forholdet mellom virkelighet og persepsjon.",
+      "viktigsteBidrag": [
+        "\"Esse est percipi\" (å være er å bli oppfattet)",
+        "Immaterialisme",
+        "Kritikk av abstrakte ideer"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Hannah Arendt",
+      "årstall": "1906-1975",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Politisk filosofi",
+        "Totalitarisme"
+      ],
+      "representerer": [
+        "Kritisk politisk tenkning"
+      ],
+      "omFilosofen": "Hannah Arendt var en tysk-jødisk filosof som flyktet fra nazismen og ble en av 1900-tallets viktigste politiske tenkere. Som student hadde hun et forhold til filosofen Martin Heidegger, som senere ble nazist - noe som skapte en livslang konflikt mellom personlig kjærlighet og politisk avsky. Arendt flyktet fra Tyskland i 1933, levde i Frankrike til hun måtte flykte igjen i 1940, og endte til slutt i USA. Hennes mest kontroversielle verk var rapportene fra rettssaken mot nazisten Adolf Eichmann i Jerusalem, der hun introduserte begrepet \"ondskapens banalitet\" - ideen om at massemordere kan være ordinære byråkrater uten særlig ondskap, bare tankeløs lydighet. Dette skapte voldsom debatt. Arendt analyserte også totalitarismens vesen og skilte mellom arbeid, verk og handling som grunnleggende menneskelige aktiviteter. Hun insisterte på at politikk handler om handling i fellesskap med andre i et offentlig rom, ikke bare om maktutøvelse.",
+      "viktigsteBidrag": [
+        "Ondskapens banalitet",
+        "Totalitarismens opprinnelse",
+        "Vita activa",
+        "Makt vs. vold"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Simone de Beauvoir",
+      "årstall": "1908-1986",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Eksistensialisme",
+        "Feminisme"
+      ],
+      "representerer": [
+        "Eksistensialistisk feminisme"
+      ],
+      "omFilosofen": "Simone de Beauvoir var en fransk filosof, forfatter og feminist som revolusjonerte tenkningen om kjønn og kvinners situasjon. Hun vokste opp i en borgerlig katolsk familie, men brøt med både religion og konvensjonell moral. På Sorbonne møtte hun Jean-Paul Sartre, og de inngikk et livslang forhold basert på intellektuell partnerskapet og åpenhet - de giftet seg aldri og hadde også andre forhold. De Beauvoir var en produktiv forfatter både av filosofiske verker og romaner. Hennes mesterverk \"Det annet kjønn\" (1949) er et monumentalt verk som analyserer kvinners undertrykkelse gjennom historien og lanserer den berømte påstanden: \"Man fødes ikke som kvinne, man blir det.\" Dette betyr at kjønnsroller er sosialt konstruerte, ikke biologisk gitte. Boken møtte skandalisert mottagelse, men ble grunnleggende for moderne feminisme. De Beauvoir engasjerte seg også politisk for kvinners rettigheter, kolonialismekritikk og abort-rettigheter. Hun viste at eksistensialistisk frihet må gjelde alle mennesker, ikke bare menn.",
+      "viktigsteBidrag": [
+        "\"Man fødes ikke til kvinne, man blir det\"",
+        "Kvinnen som \"den Andre\"",
+        "Eksistensialistisk etikk"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Peter Singer",
+      "årstall": "1946-",
+      "epoke": "Samtidsfilosofi (1900-2000-tall)",
+      "fagfelt": [
+        "Anvendt etikk",
+        "Dyrerettigheter"
+      ],
+      "representerer": [
+        "Preferanseutilitarisme"
+      ],
+      "omFilosofen": "Peter Singer er en australsk moralfilosof som har blitt en av verdens mest kontroversielle og innflytelsesrike etikere. Med sin utilitaristiske tilnærming utfordrer han etablerte forestillinger om moral på områder som dyrerettigheter, global fattigdom, abort og eutanasi. Singers bok \"Animal Liberation\" (1975) startet den moderne dyrerettighetsbevegelingen ved å argumentere for at evnen til å lide, ikke rasjonalitet eller artestilhørighet, er det moralsk relevante. Han anklager humanistisk tradisjon for \"artssjåvinisme\" (speciesism) - en diskriminering like irrasjonell som rasisme. Singer argumenterer også for at vi har moralsk plikt til å donere store deler av inntekten vår til de fattigste i verden, siden vi lett kan forhindre lidelse uten å ofre noe av tilsvarende moralsk verdi. Hans syn på infantdøping og funksjonshemmedes rettigheter har utløst voldsom debatt og protester. Singer underviser ved Princeton University og praktiserer selv det han forkynner - han donerer betydelige deler av inntekten til veldedighet.",
+      "viktigsteBidrag": [
+        "Dyrerettighetsargument",
+        "Effektiv altruisme",
+        "Preferanseutilitarisme",
+        "Utvidet sirkel av moralsk hensyn"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Michel Foucault",
+      "årstall": "1926-1984",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Maktteori",
+        "Vitenskapshistorie"
+      ],
+      "representerer": [
+        "Post-strukturalisme"
+      ],
+      "omFilosofen": "Michel Foucault var en fransk filosof og idéhistoriker som revolusjonerte forståelsen av makt, kunnskap og subjektivitet. Han levde et turbulent liv preget av depresjon, selvmordsforsøk, politisk aktivisme og et åpent homoseksuelt liv i en tid da dette var kontroversielt. Foucault studerte hvordan samfunnet disiplinerer og kontrollerer mennesker gjennom institusjoner som fengsler, sykehus og skoler, og hvordan det \"normale\" mennesket er en historisk konstruksjon. Hans metode kalles genealogi - å spore ideer tilbake til deres opprinnelse for å vise at de ikke er evige sannheter, men historiske produkter av maktforhold. Foucault analyserte hvordan seksualitet, sinnssykdom og kriminalitet er blitt definert og kontrollert. Han deltok aktivt i politiske kampanjer for fengselreform og homofiles rettigheter. Foucault døde av AIDS i 1984, bare 57 år gammel. Hans begreper som \"diskurs\", \"biopolitikk\" og \"panoptikon\" er blitt sentrale i samtidig samfunnsteori og kritikk.",
+      "viktigsteBidrag": [
+        "Makt/kunnskap-relasjonen",
+        "Biomakt og governmentality",
+        "Diskursanalyse",
+        "Genealogisk metode"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Edmund Husserl",
+      "årstall": "1859-1938",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Fenomenologi",
+        "Epistemologi"
+      ],
+      "representerer": [
+        "Fenomenologisk filosofi"
+      ],
+      "omFilosofen": "Edmund Husserl var en tysk-jødisk filosof som grunnla fenomenologien - studiet av bevissthetens strukturer og hvordan ting framtrer for oss. Opprinnelig utdannet matematiker, vendte Husserl seg mot filosofi for å finne et sikkert grunnlag for vitenskapen. Han utviklet metoden \"fenomenologisk reduksjon\" eller \"epoké\" - å sette våre vanlige antakelser om verden i parentes for å studere tingene slik de framtrer for bevisstheten. Husserl kritiserte naturalismen for å overse bevissthetens intensjonalitet - at all bevissthet er bevissthet om noe. Han underviste ved flere tyske universiteter og hadde stor innflytelse på studenter som Heidegger (som senere brøt med ham). Som jøde ble Husserl fratatt sin professorstilling av nazistene i 1933, og døde isolert og nedtrykt i 1938. Hans elev Edith Stein døde i Auschwitz. Fenomenologien ble enormt innflytelsesrik og inspirerte eksistensialismen, hermeneutikken og mye av samtidens kontinentale filosofi.",
+      "viktigsteBidrag": [
+        "Fenomenologisk reduksjon (epoché)",
+        "Intensjonalitet",
+        "Livsverden",
+        "\"Til sakene selv\""
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "W.V.O. Quine",
+      "årstall": "1908-2000",
+      "epoke": "1900-tallet",
+      "fagfelt": [
+        "Analytisk filosofi",
+        "Logikk"
+      ],
+      "representerer": [
+        "Naturalisert epistemologi"
+      ],
+      "omFilosofen": "Willard Van Orman Quine var en av 1900-tallets mest innflytelsesrike analytiske filosofer. Som ung besøkte han den logiske positivismens senter i Wien, men utviklet senere skarpe kritikker av deres kjerneideer. Quine tilbrakte nesten hele sin karriere ved Harvard University, der han formte generasjoner av filosofer. I den berømte artikkelen \"Two Dogmas of Empiricism\" angrep han to grunnpilarer i logisk positivisme: skillet mellom analytiske og syntetiske utsagn, og reduksjonismen (ideen om at alle meningsfulle utsagn kan reduseres til sansedata). Quine argumenterte for at våre teorier om verden er nettverk av påstander som testes mot erfaring som helhet, ikke individuelt - dette kalles \"epistemologisk holisme\". Han er også kjent for tesen om \"oversettelsens ubestemthet\" - at det ikke finnes én korrekt oversettelse mellom språk. Quine var en usedvanlig produktiv filosof som kombinerte teknisk presisjon med bred filosofisk visjon, og skrev viktige bidrag til logikk, språkfilosofi og ontologi.",
+      "viktigsteBidrag": [
+        "Holisme",
+        "\"To dogmer i empirismen\"",
+        "Ontologisk relativisme",
+        "Naturalisert epistemologi"
+      ],
+      "kategori": "VIKTIG"
+    },
+    {
+      "navn": "Arthur Schopenhauer",
+      "årstall": "1788-1860",
+      "epoke": "1800-tallet",
+      "fagfelt": [
+        "Metafysikk",
+        "Etikk"
+      ],
+      "representerer": [
+        "Pessimistisk idealisme"
+      ],
+      "omFilosofen": "Arthur Schopenhauer var en tysk filosof kjent for sin radikale pessimisme og originale metafysikk. Han vokste opp i en velstående handelsfamilie, men farens selvmord skapte et traume som preget hans livssyn. Schopenhauer studerte filosofi og utviklet sitt hovedverk \"Die Welt als Wille und Vorstellung\" (Verden som vilje og forestilling) allerede i 30-årene, men boken ble totalt ignorert av samtiden. Han forsøkte å konkurrere med Hegel ved å legge forelesningene sine samtidig med Hegels, men fikk ingen studenter og ga opp akademisk karriere. Schopenhauer levde resten av livet som privatfilosof i Frankfurt, bitter over mangelen på anerkjennelse. Hans filosofi hevder at viljens blinde strev er virkeligheten bak alle fenomener, og at livet derfor nødvendigvis er preget av lidelse. Kun gjennom estetisk kontemplasjon og askese kan vi midlertidig frigjøres fra viljens tyranni. På sine gamle dager fikk Schopenhauer endelig anerkjennelse, og hans pessimisme inspirerte senere tenkere som Nietzsche, Freud og eksistensialistene.",
+      "viktigsteBidrag": [
+        "Verden som vilje og forestilling",
+        "Pessimisme",
+        "Medlidenhetsetikk",
+        "Estetisk kontemplasjon"
+      ],
+      "kategori": "VIKTIG"
+    }
+  ]
+}

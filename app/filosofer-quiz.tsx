@@ -107,10 +107,17 @@ export default function FilosoferQuizScreen() {
   };
 
   const getButtonColor = (philosopher: string) => {
-    if (!answered) return "#7c3aed";
-    if (philosopher === selectedPhilosopher) return "green";
+    if (!answered) return "#333";
+    if (philosopher === selectedAnswer && philosopher === selectedPhilosopher) return "green";
     if (philosopher === selectedAnswer) return "red";
-    return "#7c3aed";
+    return "#333";
+  };
+
+  const getButtonBorderColor = (philosopher: string) => {
+    if (!answered) return "#555";
+    if (philosopher === selectedAnswer && philosopher === selectedPhilosopher) return "green";
+    if (philosopher === selectedAnswer) return "red";
+    return "#555";
   };
 
   // Få farge basert på kategori
@@ -236,7 +243,7 @@ export default function FilosoferQuizScreen() {
         {selectedPhilosopher && displayItems.length > 0 && (
           <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
             <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-              Filosofen <Text style={{ color: "#fff", backgroundColor: showPhilosopher ? getCategoryColor(selectedPhilosopher) : "transparent", fontSize: 20, paddingHorizontal: 12, paddingVertical: showPhilosopher ? 4 : 0, borderRadius: 6 }}>{showPhilosopher ? ` ${selectedPhilosopher} ` : " [NAVN] "}</Text> viktigste bidrag:
+              Filosofen <Text style={{ color: "#fff", backgroundColor: (showPhilosopher || answered) ? getCategoryColor(selectedPhilosopher) : "transparent", fontSize: 20, paddingHorizontal: 12, paddingVertical: (showPhilosopher || answered) ? 4 : 0, borderRadius: 6 }}>{(showPhilosopher || answered) ? ` ${selectedPhilosopher} ` : " [NAVN] "}</Text> viktigste bidrag:
             </Text>
             {displayItems.map((item, index) => (
               <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
@@ -264,10 +271,10 @@ export default function FilosoferQuizScreen() {
                   width: 24,
                   height: 24,
                   borderWidth: 2,
-                  borderColor: "#4da6ff",
+                  borderColor: "#888",
                   borderRadius: 4,
                   marginRight: 12,
-                  backgroundColor: showPhilosopher ? "#4da6ff" : "transparent",
+                  backgroundColor: showPhilosopher ? "#888" : "transparent",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -297,7 +304,9 @@ export default function FilosoferQuizScreen() {
                 backgroundColor: getButtonColor(philosopher),
                 paddingHorizontal: 12,
                 paddingVertical: 16,
-                borderRadius: 12,
+                borderRadius: 8,
+                borderWidth: 2,
+                borderColor: getButtonBorderColor(philosopher),
                 alignItems: "center",
               }}
             >
@@ -343,11 +352,12 @@ export default function FilosoferQuizScreen() {
               fontSize: 14,
               fontWeight: "600",
               marginBottom: 8,
+              textAlign: "center",
             }}
           >
             Fargekoder:
           </Text>
-          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
+          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View
                 style={{

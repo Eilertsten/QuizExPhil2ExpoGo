@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
+  Animated,
   SafeAreaView,
   ScrollView,
   Text,
@@ -40,6 +41,25 @@ export default function FilosoferQuizScreen() {
   const [wrongCount, setWrongCount] = useState(0);
   const [showPhilosopher, setShowPhilosopher] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>(["TOPP 10"]);
+  
+  // Animation for blink effect
+  const blinkAnim = useRef(new Animated.Value(1)).current;
+
+  // Funksjon for å starte blink-animasjon
+  const startBlinkAnimation = () => {
+    blinkAnim.setValue(1);
+    Animated.sequence([
+      // Blink 1
+      Animated.timing(blinkAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
+      Animated.timing(blinkAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
+      // Blink 2
+      Animated.timing(blinkAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
+      Animated.timing(blinkAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
+      // Blink 3
+      Animated.timing(blinkAnim, { toValue: 0, duration: 200, useNativeDriver: true }),
+      Animated.timing(blinkAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
+    ]).start();
+  };
 
   // Toggle kategori valg
   const toggleCategory = (category: string) => {
@@ -93,6 +113,13 @@ export default function FilosoferQuizScreen() {
   useEffect(() => {
     loadNewQuestion();
   }, [selectedCategories]);
+
+  // Trigger blink-animasjon når selectedPhilosopher endres og showPhilosopher er true
+  useEffect(() => {
+    if (showPhilosopher && selectedPhilosopher) {
+      startBlinkAnimation();
+    }
+  }, [selectedPhilosopher, showPhilosopher]);
 
   const handleAnswer = (philosopher: string) => {
     if (answered) return; // Ikke tillat flere svar
@@ -326,10 +353,10 @@ export default function FilosoferQuizScreen() {
                 )}
               </View>
               <Text style={{ color: "#ddd", fontSize: 16 }}>
-                Læremodus
+                {showPhilosopher ? "Korrekt svar:" : "Læremodus"}
               </Text>
               {showPhilosopher && (
-                <Text style={{ 
+                <Animated.Text style={{ 
                   color: "#fff", 
                   backgroundColor: getCategoryColor(selectedPhilosopher), 
                   fontSize: 16, 
@@ -337,10 +364,11 @@ export default function FilosoferQuizScreen() {
                   paddingHorizontal: 12, 
                   paddingVertical: 4, 
                   borderRadius: 6,
-                  marginLeft: 12
+                  marginLeft: 12,
+                  opacity: blinkAnim,
                 }}>
                   {selectedPhilosopher}
-                </Text>
+                </Animated.Text>
               )}
             </TouchableOpacity>
           </View>
@@ -402,7 +430,7 @@ export default function FilosoferQuizScreen() {
               textAlign: "center",
             }}
           >
-            Fargekoder:
+            Fargekode filosofer:
           </Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>

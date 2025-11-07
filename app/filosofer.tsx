@@ -184,7 +184,7 @@ export default function FilosoferScreen() {
             marginBottom: 8,
           }}
         >
-          Fargekoder:
+          Fargekode filosofer:
         </Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>

@@ -225,6 +225,11 @@ export default function FilosoferQuizScreen() {
               );
             })}
           </View>
+          
+          {/* Total antall filosofer tekst */}
+          <Text style={{ color: "#aaa", fontSize: 12, textAlign: "center", marginTop: 8 }}>
+            {getFilteredPhilosophers().length} filosofer tilgjengelig i quiz'en
+          </Text>
         </View>
 
         {/* Score display */}

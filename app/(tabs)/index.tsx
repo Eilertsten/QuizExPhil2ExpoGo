@@ -351,6 +351,23 @@ export default function App() {
         </Text>
 
         <TouchableOpacity
+          onPress={startLearnMode}
+          style={{
+            backgroundColor: "#4da6ff",
+            paddingHorizontal: 60,
+            paddingVertical: 20,
+            borderRadius: 12,
+            marginBottom: 20,
+            width: "80%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
+            Lær ExPhil
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
           onPress={startQuizMode}
           style={{
             backgroundColor: "#a259ff",
@@ -368,23 +385,6 @@ export default function App() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={startLearnMode}
-          style={{
-            backgroundColor: "#4da6ff",
-            paddingHorizontal: 60,
-            paddingVertical: 20,
-            borderRadius: 12,
-            marginBottom: 20,
-            width: "80%",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
-            ExPhil Lære
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
           onPress={() => {
             router.push("/filosofer");
           }}
@@ -398,8 +398,8 @@ export default function App() {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
-            Filosofer
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700", textAlign: "center" }}>
+            Filosof oversikt
           </Text>
         </TouchableOpacity>
 
@@ -418,7 +418,7 @@ export default function App() {
           }}
         >
           <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700" }}>
-            Filosofer Quiz
+            Filosof Quiz
           </Text>
         </TouchableOpacity>
 

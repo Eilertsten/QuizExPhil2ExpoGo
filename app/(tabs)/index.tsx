@@ -580,7 +580,7 @@ export default function App() {
             textShadowRadius: 8,
           }}
         >
-          {isQuizMode ? "ExPhil Quiz" : "ExPhil lære"}
+          {isQuizMode ? "ExPhil Quiz" : "Lær ExPhil"}
         </Text>
       </View>
 

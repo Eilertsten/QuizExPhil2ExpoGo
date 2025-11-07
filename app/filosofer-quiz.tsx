@@ -41,6 +41,8 @@ export default function FilosoferQuizScreen() {
   const [wrongCount, setWrongCount] = useState(0);
   const [showPhilosopher, setShowPhilosopher] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>(["TOPP 10"]);
+  const [visibleItems, setVisibleItems] = useState(0);
+  const itemAnimations = useRef<Animated.Value[]>([]);
   
   // Animation for blink effect
   const blinkAnim = useRef(new Animated.Value(1)).current;
@@ -108,6 +110,7 @@ export default function FilosoferQuizScreen() {
     setAnswered(false);
     setSelectedAnswer(null);
     // Ikke reset showPhilosopher - behold tilstanden
+    setVisibleItems(0); // Reset visible items for animation
   };
 
   useEffect(() => {
@@ -117,9 +120,41 @@ export default function FilosoferQuizScreen() {
   // Trigger blink-animasjon når selectedPhilosopher endres og showPhilosopher er true
   useEffect(() => {
     if (showPhilosopher && selectedPhilosopher) {
-      startBlinkAnimation();
+      const timer = setTimeout(() => {
+        startBlinkAnimation();
+      }, 3000); // 3 sekunder forsinkelse
+      
+      return () => clearTimeout(timer);
     }
   }, [selectedPhilosopher, showPhilosopher]);
+
+  // Animere kulepunkter ett om gangen
+  useEffect(() => {
+    if (visibleItems < displayItems.length) {
+      // Initialize animation value if needed
+      if (!itemAnimations.current[visibleItems]) {
+        itemAnimations.current[visibleItems] = new Animated.Value(0);
+      }
+      
+      const timer = setTimeout(() => {
+        // Fade in animation
+        Animated.timing(itemAnimations.current[visibleItems], {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }).start();
+        
+        setVisibleItems(prev => prev + 1);
+      }, 300); // 300ms mellom hvert kulepunkt
+      
+      return () => clearTimeout(timer);
+    }
+  }, [visibleItems, displayItems.length]);
+
+  // Reset animations when displayItems changes
+  useEffect(() => {
+    itemAnimations.current = displayItems.map(() => new Animated.Value(0));
+  }, [displayItems]);
 
   const handleAnswer = (philosopher: string) => {
     if (answered) return; // Ikke tillat flere svar
@@ -309,13 +344,20 @@ export default function FilosoferQuizScreen() {
         {/* Informasjon om valgt filosof */}
         {selectedPhilosopher && displayItems.length > 0 && (
           <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
-            {displayItems.map((item, index) => (
-              <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
+            {displayItems.slice(0, visibleItems).map((item, index) => (
+              <Animated.View 
+                key={index} 
+                style={{ 
+                  flexDirection: "row", 
+                  marginBottom: 8,
+                  opacity: itemAnimations.current[index] || 0,
+                }}
+              >
                 <Text style={{ color: "#7c3aed", marginRight: 8 }}>•</Text>
                 <Text style={{ color: "#ddd", fontSize: 17, flex: 1 }}>
                   {item}
                 </Text>
-              </View>
+              </Animated.View>
             ))}
             
             {/* Checkbox for å vise filosof */}

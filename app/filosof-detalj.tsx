@@ -123,12 +123,14 @@ export default function FilosofDetaljScreen() {
           position: "relative",
         }}
       >
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={{ padding: 8, position: "absolute", left: 16, top: 98, zIndex: 1 }}
-        >
-          <Text style={{ color: "#fff", fontSize: 28 }}>←</Text>
-        </TouchableOpacity>
+        {fromQuiz !== "true" && (
+          <TouchableOpacity
+            onPress={() => router.back()}
+            style={{ padding: 8, position: "absolute", left: 16, top: 98, zIndex: 1 }}
+          >
+            <Text style={{ color: "#fff", fontSize: 28 }}>←</Text>
+          </TouchableOpacity>
+        )}
         <View style={{ flex: 1, alignItems: "center" }}>
           <Text
             style={{

@@ -319,21 +319,39 @@ export default function FilosoferQuizScreen() {
 
         {/* Neste-knapp */}
         {answered && (
-          <TouchableOpacity
-            onPress={loadNewQuestion}
-            style={{
-              marginTop: 20,
-              backgroundColor: "#4da6ff",
-              paddingHorizontal: 20,
-              paddingVertical: 16,
-              borderRadius: 12,
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
-              Neste ➜
-            </Text>
-          </TouchableOpacity>
+          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
+            <View style={{ alignItems: "flex-end" }}>
+              <TouchableOpacity
+                onPress={loadNewQuestion}
+                style={{
+                  marginTop: 0,
+                  paddingHorizontal: 23,
+                  paddingVertical: 12,
+                  backgroundColor: "#4da6ff",
+                  borderRadius: 8,
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
+                  Neste ➜
+                </Text>
+              </TouchableOpacity>
+              
+              {selectedPhilosopher && (showPhilosopher || answered) && (
+                <TouchableOpacity 
+                  onPress={() => router.push({ 
+                    pathname: "/filosof-detalj", 
+                    params: { lastName: selectedPhilosopher } 
+                  })}
+                  style={{ marginTop: 8 }}
+                >
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    Lære mer om {selectedPhilosopher}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          </View>
         )}
 
         {/* Legend */}

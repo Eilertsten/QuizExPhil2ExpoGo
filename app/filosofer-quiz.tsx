@@ -39,7 +39,6 @@ export default function FilosoferQuizScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [showPhilosopher, setShowPhilosopher] = useState(false);
-  const [showPhilosopherName, setShowPhilosopherName] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>(["TOPP 10"]);
 
   // Toggle kategori valg
@@ -89,13 +88,6 @@ export default function FilosoferQuizScreen() {
     setAnswered(false);
     setSelectedAnswer(null);
     // Ikke reset showPhilosopher - behold tilstanden
-    // Hvis Lære modus er på, oppdater navnet med delay
-    if (showPhilosopher) {
-      setShowPhilosopherName(false);
-      setTimeout(() => {
-        setShowPhilosopherName(true);
-      }, 3000);
-    }
   };
 
   useEffect(() => {
@@ -302,27 +294,9 @@ export default function FilosoferQuizScreen() {
             {/* Checkbox for å vise filosof */}
             <TouchableOpacity
               onPress={() => {
-                // Ikke tillat endring hvis checkboxen er på og navnet ikke er vist ennå
-                if (showPhilosopher && !showPhilosopherName) {
-                  return;
-                }
-                
                 console.log('Checkbox clicked. Current state:', showPhilosopher, 'Selected philosopher:', selectedPhilosopher);
-                const newState = !showPhilosopher;
-                setShowPhilosopher(newState);
-                
-                if (newState) {
-                  // Når checkboxen krysses av, vent 3 sekunder før navnet vises
-                  setShowPhilosopherName(false);
-                  setTimeout(() => {
-                    setShowPhilosopherName(true);
-                  }, 3000);
-                } else {
-                  // Når checkboxen fjernes, skjul navnet umiddelbart
-                  setShowPhilosopherName(false);
-                }
+                setShowPhilosopher(!showPhilosopher);
               }}
-              disabled={showPhilosopher && !showPhilosopherName}
               style={{
                 flexDirection: "row",
                 alignItems: "center",
@@ -330,7 +304,6 @@ export default function FilosoferQuizScreen() {
                 paddingTop: 12,
                 borderTopWidth: 1,
                 borderTopColor: "#444",
-                opacity: (showPhilosopher && !showPhilosopherName) ? 0.5 : 1,
               }}
             >
               <View
@@ -355,7 +328,7 @@ export default function FilosoferQuizScreen() {
               <Text style={{ color: "#ddd", fontSize: 16 }}>
                 Læremodus
               </Text>
-              {showPhilosopher && showPhilosopherName && (
+              {showPhilosopher && (
                 <Text style={{ 
                   color: "#fff", 
                   backgroundColor: getCategoryColor(selectedPhilosopher), 

@@ -110,6 +110,7 @@ export default function FilosoferQuizScreen() {
     if (!answered) return "#333";
     if (philosopher === selectedAnswer && philosopher === selectedPhilosopher) return "green";
     if (philosopher === selectedAnswer) return "red";
+    if (philosopher === selectedPhilosopher) return getCategoryColor(selectedPhilosopher); // Kategorifargen for korrekt svar
     return "#333";
   };
 
@@ -117,6 +118,7 @@ export default function FilosoferQuizScreen() {
     if (!answered) return "#555";
     if (philosopher === selectedAnswer && philosopher === selectedPhilosopher) return "green";
     if (philosopher === selectedAnswer) return "red";
+    if (philosopher === selectedPhilosopher) return getCategoryColor(selectedPhilosopher); // Kategorifargen for korrekt svar
     return "#555";
   };
 
@@ -222,7 +224,7 @@ export default function FilosoferQuizScreen() {
             flexDirection: "row",
             justifyContent: "space-between",
             marginTop: 10,
-            marginBottom: 20,
+            marginBottom: 0,
           }}
         >
           <View style={{ alignItems: "flex-start" }}>
@@ -239,16 +241,45 @@ export default function FilosoferQuizScreen() {
           </View>
         </View>
 
+        {/* Filosofen tekst */}
+        {selectedPhilosopher && (
+          <Text style={{ color: "#fff", fontSize: 24, fontWeight: "700", marginBottom: 12, marginTop: 0, textAlign: "center" }}>
+            Hvilken person har bidratt{"\n"}med dette til filosofien?
+          </Text>
+        )}
+
+        {/* Filosof knapper */}
+        <View style={{ flexDirection: "row", gap: 12, marginBottom: 20 }}>
+          {randomPhilosophers.map((philosopher, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => handleAnswer(philosopher)}
+              disabled={answered}
+              style={{
+                flex: 1,
+                backgroundColor: answered ? getButtonColor(philosopher) : "#8B7BA8",
+                paddingHorizontal: 10,
+                paddingVertical: 12,
+                borderRadius: 8,
+                borderWidth: 2,
+                borderColor: answered ? getButtonBorderColor(philosopher) : "#6B5B88",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 16, fontWeight: "600", textAlign: "center" }}>
+                {philosopher}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
         {/* Informasjon om valgt filosof */}
         {selectedPhilosopher && displayItems.length > 0 && (
           <View style={{ marginBottom: 20, backgroundColor: "#222", padding: 16, borderRadius: 12 }}>
-            <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-              Filosofen <Text style={{ color: "#fff", backgroundColor: (showPhilosopher || answered) ? getCategoryColor(selectedPhilosopher) : "transparent", fontSize: 20, paddingHorizontal: 12, paddingVertical: (showPhilosopher || answered) ? 4 : 0, borderRadius: 6 }}>{(showPhilosopher || answered) ? ` ${selectedPhilosopher} ` : " [NAVN] "}</Text> viktigste bidrag:
-            </Text>
             {displayItems.map((item, index) => (
               <View key={index} style={{ flexDirection: "row", marginBottom: 8 }}>
                 <Text style={{ color: "#7c3aed", marginRight: 8 }}>•</Text>
-                <Text style={{ color: "#ddd", fontSize: 15, flex: 1 }}>
+                <Text style={{ color: "#ddd", fontSize: 17, flex: 1 }}>
                   {item}
                 </Text>
               </View>
@@ -288,34 +319,23 @@ export default function FilosoferQuizScreen() {
               <Text style={{ color: "#ddd", fontSize: 16 }}>
                 Lære modus
               </Text>
+              {showPhilosopher && (
+                <Text style={{ 
+                  color: "#fff", 
+                  backgroundColor: getCategoryColor(selectedPhilosopher), 
+                  fontSize: 16, 
+                  fontWeight: "700",
+                  paddingHorizontal: 12, 
+                  paddingVertical: 4, 
+                  borderRadius: 6,
+                  marginLeft: 12
+                }}>
+                  {selectedPhilosopher}
+                </Text>
+              )}
             </TouchableOpacity>
           </View>
         )}
-
-        {/* Filosof knapper */}
-        <View style={{ flexDirection: "row", gap: 12, marginBottom: 20 }}>
-          {randomPhilosophers.map((philosopher, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() => handleAnswer(philosopher)}
-              disabled={answered}
-              style={{
-                flex: 1,
-                backgroundColor: getButtonColor(philosopher),
-                paddingHorizontal: 12,
-                paddingVertical: 16,
-                borderRadius: 8,
-                borderWidth: 2,
-                borderColor: getButtonBorderColor(philosopher),
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "#fff", fontSize: 18, fontWeight: "600", textAlign: "center" }}>
-                {philosopher}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
 
         {/* Neste-knapp */}
         {answered && (

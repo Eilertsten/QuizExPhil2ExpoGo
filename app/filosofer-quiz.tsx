@@ -341,7 +341,7 @@ export default function FilosoferQuizScreen() {
                 <TouchableOpacity 
                   onPress={() => router.push({ 
                     pathname: "/filosof-detalj", 
-                    params: { lastName: selectedPhilosopher } 
+                    params: { lastName: selectedPhilosopher, fromQuiz: "true" } 
                   })}
                   style={{ marginTop: 8 }}
                 >

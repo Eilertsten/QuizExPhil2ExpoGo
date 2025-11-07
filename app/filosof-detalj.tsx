@@ -83,8 +83,18 @@ export default function FilosofDetaljScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const philosopherName = params.name as string;
+  const lastName = params.lastName as string;
+  const fromQuiz = params.fromQuiz as string;
 
-  const philosopher = PHILOSOPHER_DATA[philosopherName];
+  // Find philosopher by full name or by lastName
+  let philosopher = PHILOSOPHER_DATA[philosopherName];
+  
+  if (!philosopher && lastName) {
+    // Search by lastName
+    philosopher = Object.values(PHILOSOPHER_DATA).find(
+      (p: any) => p.lastName === lastName
+    );
+  }
 
   if (!philosopher) {
     return (
@@ -230,6 +240,25 @@ export default function FilosofDetaljScreen() {
             </View>
           ))}
         </CollapsibleSection>
+
+        {/* Link tilbake til filosofer-quiz hvis brukeren kom derfra */}
+        {fromQuiz === "true" && (
+          <TouchableOpacity
+            onPress={() => router.back()}
+            style={{
+              marginTop: 24,
+              marginBottom: 16,
+              padding: 16,
+              backgroundColor: "#4da6ff",
+              borderRadius: 8,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 16, fontWeight: "600" }}>
+              Tilbake
+            </Text>
+          </TouchableOpacity>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

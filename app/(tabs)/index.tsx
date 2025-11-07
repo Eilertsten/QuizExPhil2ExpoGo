@@ -710,35 +710,37 @@ export default function App() {
                 fontWeight: "700",
               }}
             >
-              Korrekt svar her er nr. {currentQuestion.correctIndex + 1}
+             Korrekt svar er: {currentQuestion.correctIndex + 1}
             </Text>
           </View>
         )}
       </View>
 
-      {/* Riktige / Lest / Feil */}
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 20,
-          width: "100%",
-        }}
-      >
-        <View style={{ alignItems: "flex-start" }}>
-          <Text style={{ color: "#ddd", fontSize: 18 }}>Korrekt:</Text>
-          <Text style={{ color: "green", fontSize: 40, fontWeight: "900" }}>
-            {progress}
-          </Text>
-        </View>
+      {/* Riktige / Lest / Feil - kun i Quiz-modus */}
+      {isQuizMode && (
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 20,
+            width: "100%",
+          }}
+        >
+          <View style={{ alignItems: "flex-start" }}>
+            <Text style={{ color: "#ddd", fontSize: 18 }}>Korrekt:</Text>
+            <Text style={{ color: "green", fontSize: 40, fontWeight: "900" }}>
+              {progress}
+            </Text>
+          </View>
 
-        <View style={{ alignItems: "flex-end" }}>
-          <Text style={{ color: "#ddd", fontSize: 18 }}>Feil:</Text>
-          <Text style={{ color: "red", fontSize: 40, fontWeight: "900" }}>
-            {answered - progress}
-          </Text>
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={{ color: "#ddd", fontSize: 18 }}>Feil:</Text>
+            <Text style={{ color: "red", fontSize: 40, fontWeight: "900" }}>
+              {answered - progress}
+            </Text>
+          </View>
         </View>
-      </View>
+      )}
 
       {/* Spørsmål */}
       <Text style={{ color: "#fff", fontSize: 20, marginBottom: 12 }}>

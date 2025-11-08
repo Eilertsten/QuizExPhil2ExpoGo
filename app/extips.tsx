@@ -1,11 +1,12 @@
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 interface CollapsibleSectionProps {
@@ -56,6 +57,8 @@ function CollapsibleSection({ title, children, defaultExpanded = false }: Collap
 
 export default function ExTipsScreen() {
   const router = useRouter();
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [showUvitenhetTooltip, setShowUvitenhetTooltip] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -146,18 +149,140 @@ export default function ExTipsScreen() {
             <Text style={{ color: "#4da6ff", fontSize: 16, fontWeight: "700", marginBottom: 8 }}>
               Nøkkelbegreper å kunne forklare:
             </Text>
-            <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-              • Kategorisk imperativ{"\n"}
-              • Uvitenhetens slør{"\n"}
-              • Cogito ergo sum{"\n"}
-              • Tabula rasa{"\n"}
-              • Paradigmeskifte{"\n"}
-              • Eksistensen før essensen{"\n"}
-              • Eudaimonia{"\n"}
-              • Naturtilstanden
-            </Text>
+            <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• </Text>
+                <TouchableOpacity onPress={() => setShowTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    Kategorisk imperativ
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• </Text>
+                <TouchableOpacity onPress={() => setShowUvitenhetTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    Uvitenhetens slør
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                • Cogito ergo sum{"\n"}
+                • Tabula rasa{"\n"}
+                • Paradigmeskifte{"\n"}
+                • Eksistensen før essensen{"\n"}
+                • Eudaimonia{"\n"}
+                • Naturtilstanden
+              </Text>
+            </View>
           </View>
         </CollapsibleSection>
+
+        {/* Tooltip Modal */}
+        <Modal
+          transparent={true}
+          visible={showTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowTooltip(false)}
+          >
+            <View
+              style={{
+                backgroundColor: "#222",
+                padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
+              }}
+            >
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Kategorisk imperativ (Kant)
+              </Text>
+              <Text style={{ color: "#ddd", fontSize: 15, lineHeight: 24 }}>
+                Det er et moralsk prinsipp (moralfilosofi) som sier at du skal handle kun etter den regel du ønsker skal gjelde som en universell lov for alle.
+              </Text>
+              <TouchableOpacity
+                onPress={() => setShowTooltip(false)}
+                style={{
+                  marginTop: 16,
+                  backgroundColor: "#4da6ff",
+                  padding: 12,
+                  borderRadius: 8,
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                  Lukk
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+        </Modal>
+
+        {/* Tooltip Modal for Uvitenhetens slør */}
+        <Modal
+          transparent={true}
+          visible={showUvitenhetTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowUvitenhetTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowUvitenhetTooltip(false)}
+          >
+            <View
+              style={{
+                backgroundColor: "#222",
+                padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
+              }}
+            >
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Uvitenhetens slør (Rawls)
+              </Text>
+              <Text style={{ color: "#ddd", fontSize: 15, lineHeight: 24 }}>
+                Forestill deg at du skal designe et rettferdig samfunn, men du vet ingenting om din egen posisjon i det samfunnet.{"\n\n"}
+                Når du ikke vet hvor du havner, vil du lage regler som er rettferdige for alle, ikke bare for de priviligerte. Du vil beskytte de svakeste, fordi du selv kan ende opp der. {"\n\n"}
+                Praktisk eksempel: Tenk deg at du skal dele en kake, men du vet ikke hvilken bit du får. Da vil du sørge for at bitene er mest mulig like store!
+              </Text>
+              <TouchableOpacity
+                onPress={() => setShowUvitenhetTooltip(false)}
+                style={{
+                  marginTop: 16,
+                  backgroundColor: "#4da6ff",
+                  padding: 12,
+                  borderRadius: 8,
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                  Lukk
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+        </Modal>
 
         {/* TIDSLINJE */}
         <CollapsibleSection title="TIDSLINJE">

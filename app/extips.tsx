@@ -59,6 +59,7 @@ export default function ExTipsScreen() {
   const router = useRouter();
   const [showTooltip, setShowTooltip] = useState(false);
   const [showUvitenhetTooltip, setShowUvitenhetTooltip] = useState(false);
+  const [showCogitoTooltip, setShowCogitoTooltip] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -166,8 +167,15 @@ export default function ExTipsScreen() {
                   </Text>
                 </TouchableOpacity>
               </View>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• </Text>
+                <TouchableOpacity onPress={() => setShowCogitoTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    Cogito ergo sum
+                  </Text>
+                </TouchableOpacity>
+              </View>
               <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                • Cogito ergo sum{"\n"}
                 • Tabula rasa{"\n"}
                 • Paradigmeskifte{"\n"}
                 • Eksistensen før essensen{"\n"}
@@ -268,6 +276,60 @@ export default function ExTipsScreen() {
               </Text>
               <TouchableOpacity
                 onPress={() => setShowUvitenhetTooltip(false)}
+                style={{
+                  marginTop: 16,
+                  backgroundColor: "#4da6ff",
+                  padding: 12,
+                  borderRadius: 8,
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                  Lukk
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+        </Modal>
+
+        {/* Tooltip Modal for Cogito ergo sum */}
+        <Modal
+          transparent={true}
+          visible={showCogitoTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowCogitoTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowCogitoTooltip(false)}
+          >
+            <View
+              style={{
+                backgroundColor: "#222",
+                padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
+              }}
+            >
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Cogito ergo sum (Descartes)
+              </Text>
+              <Text style={{ color: "#ddd", fontSize: 15, lineHeight: 24 }}>
+                "Cogito ergo sum" er Latin for "Jeg tenker, derfor er jeg" - det mest kjente sitatet fra René Descartes.{"\n\n"}
+                Descartes ville finne noe han kunne være helt sikker på. Han tviler på alt: Kanskje sansene lurer meg? Kanskje jeg drømmer? Kanskje et ondt vesen lurer meg til å tro alt er virkelig?{"\n\n"}
+                Men så innser han: Selv om jeg tviler på alt, kan jeg ikke tvile på at JEG tviler. For å tvile, må jeg tenke. Og for å tenke, må jeg eksistere.
+              </Text>
+              <TouchableOpacity
+                onPress={() => setShowCogitoTooltip(false)}
                 style={{
                   marginTop: 16,
                   backgroundColor: "#4da6ff",

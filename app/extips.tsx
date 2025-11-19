@@ -615,6 +615,12 @@ export default function ExTipsScreen() {
                   Kant vs. Mill: Pliktetikk vs. Utilitarisme
                 </Text>
                 
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                  • Kant: "Gjør det rette, uansett konsekvenser"{"\n"}
+                  • Mill: "Gjør det som gir best resultat"
+                </Text>
+
                 <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
                   Kants pliktetikk:
                 </Text>
@@ -645,10 +651,7 @@ export default function ExTipsScreen() {
                 <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
                   <Text style={{ fontWeight: "600" }}>Scenario:</Text> En morder banker på døren og spør hvor vennen din er.{"\n\n"}
                   • <Text style={{ fontWeight: "600" }}>Kant:</Text> Du må si sannheten (eller i det minste ikke lyve), fordi løgn er alltid galt{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Mill:</Text> Du bør lyve for å redde vennens liv, fordi det skaper mest lykke/minst lidelse{"\n\n"}
-                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
-                  • Kant: "Gjør det rette, uansett konsekvenser"{"\n"}
-                  • Mill: "Gjør det som gir best resultat"
+                  • <Text style={{ fontWeight: "600" }}>Mill:</Text> Du bør lyve for å redde vennens liv, fordi det skaper mest lykke/minst lidelse
                 </Text>
 
                 <TouchableOpacity

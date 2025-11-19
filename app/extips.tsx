@@ -60,6 +60,7 @@ export default function ExTipsScreen() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [showUvitenhetTooltip, setShowUvitenhetTooltip] = useState(false);
   const [showCogitoTooltip, setShowCogitoTooltip] = useState(false);
+  const [showKantMillTooltip, setShowKantMillTooltip] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -137,13 +138,23 @@ export default function ExTipsScreen() {
             <Text style={{ color: "#4da6ff", fontSize: 16, fontWeight: "700", marginBottom: 8 }}>
               Viktige motsetninger å kunne:
             </Text>
-            <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-              • Kant vs. Mill (pliktetikk vs. utilitarisme){"\n"}
-              • Hobbes vs. Locke vs. Rousseau (samfunnskontrakt){"\n"}
-              • Platon vs. Aristoteles (idealisme vs. realisme){"\n"}
-              • Descartes vs. Hume (rasjonalisme vs. empirisme){"\n"}
-              • Popper vs. Kuhn (vitenskapsteori)
-            </Text>
+            <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• Kant vs. Mill (</Text>
+                <TouchableOpacity onPress={() => setShowKantMillTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    pliktetikk vs. utilitarisme
+                  </Text>
+                </TouchableOpacity>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>)</Text>
+              </View>
+              <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                • Hobbes vs. Locke vs. Rousseau (samfunnskontrakt){"\n"}
+                • Platon vs. Aristoteles (idealisme vs. realisme){"\n"}
+                • Descartes vs. Hume (rasjonalisme vs. empirisme){"\n"}
+                • Popper vs. Kuhn (vitenskapsteori)
+              </Text>
+            </View>
           </View>
 
           <View>
@@ -343,6 +354,101 @@ export default function ExTipsScreen() {
                 </Text>
               </TouchableOpacity>
             </View>
+          </TouchableOpacity>
+        </Modal>
+
+        {/* Tooltip Modal for Kant vs Mill */}
+        <Modal
+          transparent={true}
+          visible={showKantMillTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowKantMillTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowKantMillTooltip(false)}
+          >
+            <ScrollView
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 20,
+              }}
+            >
+              <View
+                style={{
+                  backgroundColor: "#222",
+                  padding: 20,
+                  borderRadius: 12,
+                  maxWidth: "90%",
+                  borderWidth: 2,
+                  borderColor: "#4da6ff",
+                }}
+              >
+                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                  Kant vs. Mill: Pliktetikk vs. Utilitarisme
+                </Text>
+                
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                  Kants pliktetikk:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens intensjon og plikt{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Er handlingen i seg selv riktig?"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> Det kategoriske imperativ - "Handle kun etter den maksime som du samtidig kan ville skal bli en allmenn lov"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du skal aldri lyve, uansett konsekvenser, fordi løgn i seg selv er galt{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis alle løy, ville tillit og kommunikasjon bryte sammen - derfor er løgn alltid galt{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Menneskets verdi:</Text> Mennesker er mål i seg selv, aldri bare midler
+                </Text>
+
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Mills utilitarisme:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens konsekvenser og nytte{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Hva skaper mest lykke for flest mulig?"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> "Den største lykke for det største antall"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du kan lyve hvis det skaper mer lykke/mindre lidelse totalt sett{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis en løgn redder liv eller forhindrer stor smerte, er den moralsk riktig{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Fleksibilitet:</Text> Samme handling kan være riktig i én situasjon, gal i en annen
+                </Text>
+
+                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Kjernekonflikten:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Scenario:</Text> En morder banker på døren og spør hvor vennen din er.{"\n\n"}
+                  • <Text style={{ fontWeight: "600" }}>Kant:</Text> Du må si sannheten (eller i det minste ikke lyve), fordi løgn er alltid galt{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Mill:</Text> Du bør lyve for å redde vennens liv, fordi det skaper mest lykke/minst lidelse{"\n\n"}
+                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                  • Kant: "Gjør det rette, uansett konsekvenser"{"\n"}
+                  • Mill: "Gjør det som gir best resultat"
+                </Text>
+
+                <TouchableOpacity
+                  onPress={() => setShowKantMillTooltip(false)}
+                  style={{
+                    marginTop: 16,
+                    backgroundColor: "#4da6ff",
+                    padding: 12,
+                    borderRadius: 8,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                    Lukk
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
           </TouchableOpacity>
         </Modal>
 

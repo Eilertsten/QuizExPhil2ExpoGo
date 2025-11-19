@@ -416,6 +416,13 @@ export default function ExTipsScreen() {
                 </Text>
                 
                 <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Hobbes:</Text> Autoritær - "Gi opp frihet for sikkerhet"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Locke:</Text> Liberal - "Staten skal beskytte dine rettigheter"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Rousseau:</Text> Demokratisk - "Folket skal styre seg selv"
+                </Text>
+
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
                   Alle tre filosofene mener at samfunnet er basert på en <Text style={{ fontWeight: "600" }}>kontrakt</Text> mellom individer, men de har svært forskjellige syn på hva denne kontrakten innebærer.
                 </Text>
 
@@ -447,15 +454,6 @@ export default function ExTipsScreen() {
                   <Text style={{ fontWeight: "600" }}>Løsningen:</Text> "Fellesviljen" - folk styrer seg selv kollektivt{"\n\n"}
                   <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Ekte frihet er å adlyde lover man selv har vært med på å lage{"\n\n"}
                   <Text style={{ fontWeight: "600" }}>Resultat:</Text> Direkte demokrati - folkesuverenitet
-                </Text>
-
-                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Oppsummert:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  • <Text style={{ fontWeight: "600" }}>Hobbes:</Text> Autoritær - "Gi opp frihet for sikkerhet"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Locke:</Text> Liberal - "Staten skal beskytte dine rettigheter"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Rousseau:</Text> Demokratisk - "Folket skal styre seg selv"
                 </Text>
 
                 <TouchableOpacity
@@ -517,6 +515,15 @@ export default function ExTipsScreen() {
                   Platon vs. Aristoteles: Idealisme vs. Realisme
                 </Text>
                 
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Virkeligheten er transcendent (hinsides det vi ser){"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Virkeligheten er immanent (tilstede i tingene){"\n\n"}
+                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Matematikk og abstrakt tenkning er veien til sannhet{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Empirisk observasjon og logisk analyse er veien til sannhet{"\n\n"}
+                  <Text style={{ fontStyle: "italic" }}>Dette er en av de mest grunnleggende motsetningene i filosofihistorien, og den påvirker fortsatt debatter om metafysikk, epistemologi og vitenskapsfilosofi i dag.</Text>
+                </Text>
+
                 <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
                   Platon - Idealismen:
                 </Text>
@@ -543,17 +550,6 @@ export default function ExTipsScreen() {
                   <Text style={{ fontWeight: "600" }}>Én verden:</Text>{"\n"}
                   • Alt som eksisterer er i denne verden{"\n"}
                   • Form og materie er uatskillelige i konkrete ting
-                </Text>
-
-                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Kjernen i konflikten:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Virkeligheten er transcendent (hinsides det vi ser){"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Virkeligheten er immanent (tilstede i tingene){"\n\n"}
-                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Matematikk og abstrakt tenkning er veien til sannhet{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Empirisk observasjon og logisk analyse er veien til sannhet{"\n\n"}
-                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Dette er en av de mest grunnleggende motsetningene i filosofihistorien, og den påvirker fortsatt debatter om metafysikk, epistemologi og vitenskapsfilosofi i dag.</Text>
                 </Text>
 
                 <TouchableOpacity

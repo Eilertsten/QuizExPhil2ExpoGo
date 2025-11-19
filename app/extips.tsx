@@ -61,6 +61,8 @@ export default function ExTipsScreen() {
   const [showUvitenhetTooltip, setShowUvitenhetTooltip] = useState(false);
   const [showCogitoTooltip, setShowCogitoTooltip] = useState(false);
   const [showKantMillTooltip, setShowKantMillTooltip] = useState(false);
+  const [showIdealismeRealismeTooltip, setShowIdealismeRealismeTooltip] = useState(false);
+  const [showSamfunnskontraktTooltip, setShowSamfunnskontraktTooltip] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -148,9 +150,25 @@ export default function ExTipsScreen() {
                 </TouchableOpacity>
                 <Text style={{ color: "#ddd", fontSize: 14 }}>)</Text>
               </View>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• Hobbes vs. Locke vs. Rousseau (</Text>
+                <TouchableOpacity onPress={() => setShowSamfunnskontraktTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    samfunnskontrakt
+                  </Text>
+                </TouchableOpacity>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>)</Text>
+              </View>
+              <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>• Platon vs. Aristoteles (</Text>
+                <TouchableOpacity onPress={() => setShowIdealismeRealismeTooltip(true)}>
+                  <Text style={{ color: "#4da6ff", fontSize: 14, textDecorationLine: "underline" }}>
+                    idealisme vs. realisme
+                  </Text>
+                </TouchableOpacity>
+                <Text style={{ color: "#ddd", fontSize: 14 }}>)</Text>
+              </View>
               <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                • Hobbes vs. Locke vs. Rousseau (samfunnskontrakt){"\n"}
-                • Platon vs. Aristoteles (idealisme vs. realisme){"\n"}
                 • Descartes vs. Hume (rasjonalisme vs. empirisme){"\n"}
                 • Popper vs. Kuhn (vitenskapsteori)
               </Text>
@@ -354,6 +372,206 @@ export default function ExTipsScreen() {
                 </Text>
               </TouchableOpacity>
             </View>
+          </TouchableOpacity>
+        </Modal>
+
+        {/* Tooltip Modal for Samfunnskontrakt */}
+        <Modal
+          transparent={true}
+          visible={showSamfunnskontraktTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowSamfunnskontraktTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowSamfunnskontraktTooltip(false)}
+          >
+            <ScrollView
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 20,
+              }}
+            >
+              <View
+                style={{
+                  backgroundColor: "#222",
+                  padding: 20,
+                  borderRadius: 12,
+                  maxWidth: "90%",
+                  borderWidth: 2,
+                  borderColor: "#4da6ff",
+                }}
+              >
+                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                  Hobbes vs. Locke vs. Rousseau: Samfunnskontrakten
+                </Text>
+                
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                  Alle tre filosofene mener at samfunnet er basert på en <Text style={{ fontWeight: "600" }}>kontrakt</Text> mellom individer, men de har svært forskjellige syn på hva denne kontrakten innebærer.
+                </Text>
+
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                  Thomas Hobbes (1588-1679):
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Alles krig mot alle" - livet er "ensomt, fattigt, ekkelt, brutalt og kort"{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg all makt til en absolutt hersker (Leviathan){"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Sikkerhet er viktigere enn frihet{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Autoritært styre - folket kan ikke gjøre opprør
+                </Text>
+
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  John Locke (1632-1704):
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> Fredelig, men mangler nøytrale dommere{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg noe makt til staten, men beholder naturrettigheter (liv, frihet, eiendom){"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Staten eksisterer for å beskytte individets rettigheter{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Liberal demokrati - folket kan avsette regjeringen hvis den bryter kontrakten
+                </Text>
+
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Jean-Jacques Rousseau (1712-1778):
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Den edle villmann" - mennesket er naturlig godt, men samfunnet korrumperer{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> "Fellesviljen" - folk styrer seg selv kollektivt{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Ekte frihet er å adlyde lover man selv har vært med på å lage{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Direkte demokrati - folkesuverenitet
+                </Text>
+
+                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Oppsummert:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  • <Text style={{ fontWeight: "600" }}>Hobbes:</Text> Autoritær - "Gi opp frihet for sikkerhet"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Locke:</Text> Liberal - "Staten skal beskytte dine rettigheter"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Rousseau:</Text> Demokratisk - "Folket skal styre seg selv"
+                </Text>
+
+                <TouchableOpacity
+                  onPress={() => setShowSamfunnskontraktTooltip(false)}
+                  style={{
+                    marginTop: 16,
+                    backgroundColor: "#4da6ff",
+                    padding: 12,
+                    borderRadius: 8,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                    Lukk
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </TouchableOpacity>
+        </Modal>
+
+        {/* Tooltip Modal for Idealisme vs. Realisme */}
+        <Modal
+          transparent={true}
+          visible={showIdealismeRealismeTooltip}
+          animationType="fade"
+          onRequestClose={() => setShowIdealismeRealismeTooltip(false)}
+        >
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+            }}
+            activeOpacity={1}
+            onPress={() => setShowIdealismeRealismeTooltip(false)}
+          >
+            <ScrollView
+              contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 20,
+              }}
+            >
+              <View
+                style={{
+                  backgroundColor: "#222",
+                  padding: 20,
+                  borderRadius: 12,
+                  maxWidth: "90%",
+                  borderWidth: 2,
+                  borderColor: "#4da6ff",
+                }}
+              >
+                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                  Platon vs. Aristoteles: Idealisme vs. Realisme
+                </Text>
+                
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                  Platon - Idealismen:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Idéverdenen er det virkelige:</Text>{"\n"}
+                  • Det finnes en perfekt verden av evige, uforanderlige <Text style={{ fontWeight: "600" }}>ideer</Text> (former){"\n"}
+                  • Det vi ser rundt oss er bare ufullkomne kopier av disse ideene{"\n"}
+                  • Eksempel: Alle hester vi ser er ufullkomne kopier av ideen "Hest"{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Sansene</Text> bedrar oss - bare <Text style={{ fontWeight: "600" }}>fornuften</Text> kan nå de sanne ideene{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>To verdener:</Text>{"\n"}
+                  • Idéverdenen (det virkelig virkelige) - evig og perfekt{"\n"}
+                  • Sanseverdenen (skyggeverden) - forgjenelig og upålitelig
+                </Text>
+
+                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Aristoteles - Realismen:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  <Text style={{ fontWeight: "600" }}>Denne verden er den virkelige:</Text>{"\n"}
+                  • Det finnes ingen separat idéverden{"\n"}
+                  • Det almenne (essensen) finnes <Text style={{ fontWeight: "600" }}>i</Text> tingene selv, ikke i en annen dimensjon{"\n"}
+                  • Eksempel: "Hest-het" finnes i hver enkelt hest, ikke i en separat idé{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Både sansene og fornuften</Text> er viktige for kunnskap{"\n\n"}
+                  <Text style={{ fontWeight: "600" }}>Én verden:</Text>{"\n"}
+                  • Alt som eksisterer er i denne verden{"\n"}
+                  • Form og materie er uatskillelige i konkrete ting
+                </Text>
+
+                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                  Kjernen i konflikten:
+                </Text>
+                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Virkeligheten er transcendent (hinsides det vi ser){"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Virkeligheten er immanent (tilstede i tingene){"\n\n"}
+                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Matematikk og abstrakt tenkning er veien til sannhet{"\n"}
+                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Empirisk observasjon og logisk analyse er veien til sannhet{"\n\n"}
+                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Dette er en av de mest grunnleggende motsetningene i filosofihistorien, og den påvirker fortsatt debatter om metafysikk, epistemologi og vitenskapsfilosofi i dag.</Text>
+                </Text>
+
+                <TouchableOpacity
+                  onPress={() => setShowIdealismeRealismeTooltip(false)}
+                  style={{
+                    marginTop: 16,
+                    backgroundColor: "#4da6ff",
+                    padding: 12,
+                    borderRadius: 8,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                    Lukk
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
           </TouchableOpacity>
         </Modal>
 

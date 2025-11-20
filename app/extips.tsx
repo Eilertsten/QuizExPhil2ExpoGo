@@ -63,6 +63,9 @@ export default function ExTipsScreen() {
   const [showKantMillTooltip, setShowKantMillTooltip] = useState(false);
   const [showIdealismeRealismeTooltip, setShowIdealismeRealismeTooltip] = useState(false);
   const [showSamfunnskontraktTooltip, setShowSamfunnskontraktTooltip] = useState(false);
+  const [kantMillPage, setKantMillPage] = useState(0);
+  const [samfunnskontraktPage, setSamfunnskontraktPage] = useState(0);
+  const [idealismeRealismePage, setIdealismeRealismePage] = useState(0);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#111" }}>
@@ -380,7 +383,10 @@ export default function ExTipsScreen() {
           transparent={true}
           visible={showSamfunnskontraktTooltip}
           animationType="fade"
-          onRequestClose={() => setShowSamfunnskontraktTooltip(false)}
+          onRequestClose={() => {
+            setShowSamfunnskontraktTooltip(false);
+            setSamfunnskontraktPage(0);
+          }}
         >
           <TouchableOpacity
             style={{
@@ -391,87 +397,144 @@ export default function ExTipsScreen() {
               padding: 20,
             }}
             activeOpacity={1}
-            onPress={() => setShowSamfunnskontraktTooltip(false)}
+            onPress={() => {
+              setShowSamfunnskontraktTooltip(false);
+              setSamfunnskontraktPage(0);
+            }}
           >
-            <ScrollView
-              contentContainerStyle={{
-                flexGrow: 1,
-                justifyContent: "center",
-                alignItems: "center",
+            <View
+              style={{
+                backgroundColor: "#222",
                 padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                width: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
               }}
+              onStartShouldSetResponder={() => true}
             >
-              <View
-                style={{
-                  backgroundColor: "#222",
-                  padding: 20,
-                  borderRadius: 12,
-                  maxWidth: "90%",
-                  borderWidth: 2,
-                  borderColor: "#4da6ff",
-                }}
-              >
-                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-                  Hobbes vs. Locke vs. Rousseau: Samfunnskontrakten
-                </Text>
-                
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
-                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Hobbes:</Text> Autoritær - "Gi opp frihet for sikkerhet"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Locke:</Text> Liberal - "Staten skal beskytte dine rettigheter"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Rousseau:</Text> Demokratisk - "Folket skal styre seg selv"
-                </Text>
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Hobbes vs. Locke vs. Rousseau: Samfunnskontrakten
+              </Text>
+              
+              <ScrollView style={{ maxHeight: 400 }}>
+                {samfunnskontraktPage === 0 && (
+                  <View>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                      <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Hobbes:</Text> Autoritær - "Gi opp frihet for sikkerhet"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Locke:</Text> Liberal - "Staten skal beskytte dine rettigheter"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Rousseau:</Text> Demokratisk - "Folket skal styre seg selv"
+                    </Text>
 
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
-                  Alle tre filosofene mener at samfunnet er basert på en <Text style={{ fontWeight: "600" }}>kontrakt</Text> mellom individer, men de har svært forskjellige syn på hva denne kontrakten innebærer.
-                </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                      Alle tre filosofene mener at samfunnet er basert på en <Text style={{ fontWeight: "600" }}>kontrakt</Text> mellom individer, men de har svært forskjellige syn på hva denne kontrakten innebærer.
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
-                  Thomas Hobbes (1588-1679):
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Alles krig mot alle" - livet er "ensomt, fattigt, ekkelt, brutalt og kort"{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg all makt til en absolutt hersker (Leviathan){"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Sikkerhet er viktigere enn frihet{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Autoritært styre - folket kan ikke gjøre opprør
-                </Text>
+                {samfunnskontraktPage === 1 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Thomas Hobbes (1588-1679):
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Alles krig mot alle" - livet er "ensomt, fattigt, ekkelt, brutalt og kort"{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg all makt til en absolutt hersker (Leviathan){"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Sikkerhet er viktigere enn frihet{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Resultat:</Text> Autoritært styre - folket kan ikke gjøre opprør
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  John Locke (1632-1704):
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> Fredelig, men mangler nøytrale dommere{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg noe makt til staten, men beholder naturrettigheter (liv, frihet, eiendom){"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Staten eksisterer for å beskytte individets rettigheter{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Liberal demokrati - folket kan avsette regjeringen hvis den bryter kontrakten
-                </Text>
+                {samfunnskontraktPage === 2 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      John Locke (1632-1704):
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> Fredelig, men mangler nøytrale dommere{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Løsningen:</Text> Folk gir fra seg noe makt til staten, men beholder naturrettigheter (liv, frihet, eiendom){"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Staten eksisterer for å beskytte individets rettigheter{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Resultat:</Text> Liberal demokrati - folket kan avsette regjeringen hvis den bryter kontrakten
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Jean-Jacques Rousseau (1712-1778):
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Den edle villmann" - mennesket er naturlig godt, men samfunnet korrumperer{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Løsningen:</Text> "Fellesviljen" - folk styrer seg selv kollektivt{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Ekte frihet er å adlyde lover man selv har vært med på å lage{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Resultat:</Text> Direkte demokrati - folkesuverenitet
-                </Text>
+                {samfunnskontraktPage === 3 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Jean-Jacques Rousseau (1712-1778):
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Naturtilstanden:</Text> "Den edle villmann" - mennesket er naturlig godt, men samfunnet korrumperer{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Løsningen:</Text> "Fellesviljen" - folk styrer seg selv kollektivt{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Hovedpoeng:</Text> Ekte frihet er å adlyde lover man selv har vært med på å lage{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Resultat:</Text> Direkte demokrati - folkesuverenitet
+                    </Text>
+                  </View>
+                )}
+              </ScrollView>
 
+              {/* Navigation buttons */}
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 16, gap: 8 }}>
                 <TouchableOpacity
-                  onPress={() => setShowSamfunnskontraktTooltip(false)}
+                  onPress={() => setSamfunnskontraktPage(Math.max(0, samfunnskontraktPage - 1))}
+                  disabled={samfunnskontraktPage === 0}
                   style={{
-                    marginTop: 16,
-                    backgroundColor: "#4da6ff",
+                    flex: 1,
+                    backgroundColor: samfunnskontraktPage === 0 ? "#555" : "#4da6ff",
                     padding: 12,
                     borderRadius: 8,
                     alignItems: "center",
                   }}
                 >
                   <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
-                    Lukk
+                    ← Tilbake
                   </Text>
                 </TouchableOpacity>
+
+                <Text style={{ color: "#4da6ff", fontSize: 14, alignSelf: "center", paddingHorizontal: 8 }}>
+                  {samfunnskontraktPage + 1} / 4
+                </Text>
+
+                {samfunnskontraktPage < 3 ? (
+                  <TouchableOpacity
+                    onPress={() => setSamfunnskontraktPage(Math.min(3, samfunnskontraktPage + 1))}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Frem →
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    onPress={() => {
+                      setShowSamfunnskontraktTooltip(false);
+                      setSamfunnskontraktPage(0);
+                    }}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Lukk
+                    </Text>
+                  </TouchableOpacity>
+                )}
               </View>
-            </ScrollView>
+            </View>
           </TouchableOpacity>
         </Modal>
 
@@ -480,7 +543,10 @@ export default function ExTipsScreen() {
           transparent={true}
           visible={showIdealismeRealismeTooltip}
           animationType="fade"
-          onRequestClose={() => setShowIdealismeRealismeTooltip(false)}
+          onRequestClose={() => {
+            setShowIdealismeRealismeTooltip(false);
+            setIdealismeRealismePage(0);
+          }}
         >
           <TouchableOpacity
             style={{
@@ -491,83 +557,136 @@ export default function ExTipsScreen() {
               padding: 20,
             }}
             activeOpacity={1}
-            onPress={() => setShowIdealismeRealismeTooltip(false)}
+            onPress={() => {
+              setShowIdealismeRealismeTooltip(false);
+              setIdealismeRealismePage(0);
+            }}
           >
-            <ScrollView
-              contentContainerStyle={{
-                flexGrow: 1,
-                justifyContent: "center",
-                alignItems: "center",
+            <View
+              style={{
+                backgroundColor: "#222",
                 padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                width: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
               }}
+              onStartShouldSetResponder={() => true}
             >
-              <View
-                style={{
-                  backgroundColor: "#222",
-                  padding: 20,
-                  borderRadius: 12,
-                  maxWidth: "90%",
-                  borderWidth: 2,
-                  borderColor: "#4da6ff",
-                }}
-              >
-                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-                  Platon vs. Aristoteles: Idealisme vs. Realisme
-                </Text>
-                
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
-                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Virkeligheten er transcendent (hinsides det vi ser){"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Virkeligheten er immanent (tilstede i tingene){"\n\n"}
-                  • <Text style={{ fontWeight: "600" }}>Platon:</Text> Matematikk og abstrakt tenkning er veien til sannhet{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Empirisk observasjon og logisk analyse er veien til sannhet{"\n\n"}
-                  <Text style={{ fontStyle: "italic" }}>Dette er en av de mest grunnleggende motsetningene i filosofihistorien, og den påvirker fortsatt debatter om metafysikk, epistemologi og vitenskapsfilosofi i dag.</Text>
-                </Text>
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Platon vs. Aristoteles: Idealisme vs. Realisme
+              </Text>
+              
+              <ScrollView style={{ maxHeight: 400 }}>
+                {idealismeRealismePage === 0 && (
+                  <View>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                      <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Platon:</Text> Virkeligheten er transcendent (hinsides det vi ser){"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Virkeligheten er immanent (tilstede i tingene){"\n\n"}
+                      • <Text style={{ fontWeight: "600" }}>Platon:</Text> Matematikk og abstrakt tenkning er veien til sannhet{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Aristoteles:</Text> Empirisk observasjon og logisk analyse er veien til sannhet{"\n\n"}
+                      <Text style={{ fontStyle: "italic" }}>Dette er en av de mest grunnleggende motsetningene i filosofihistorien, og den påvirker fortsatt debatter om metafysikk, epistemologi og vitenskapsfilosofi i dag.</Text>
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
-                  Platon - Idealismen:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Idéverdenen er det virkelige:</Text>{"\n"}
-                  • Det finnes en perfekt verden av evige, uforanderlige <Text style={{ fontWeight: "600" }}>ideer</Text> (former){"\n"}
-                  • Det vi ser rundt oss er bare ufullkomne kopier av disse ideene{"\n"}
-                  • Eksempel: Alle hester vi ser er ufullkomne kopier av ideen "Hest"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Sansene</Text> bedrar oss - bare <Text style={{ fontWeight: "600" }}>fornuften</Text> kan nå de sanne ideene{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>To verdener:</Text>{"\n"}
-                  • Idéverdenen (det virkelig virkelige) - evig og perfekt{"\n"}
-                  • Sanseverdenen (skyggeverden) - forgjenelig og upålitelig
-                </Text>
+                {idealismeRealismePage === 1 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Platon - Idealismen:
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Idéverdenen er det virkelige:</Text>{"\n"}
+                      • Det finnes en perfekt verden av evige, uforanderlige <Text style={{ fontWeight: "600" }}>ideer</Text> (former){"\n"}
+                      • Det vi ser rundt oss er bare ufullkomne kopier av disse ideene{"\n"}
+                      • Eksempel: Alle hester vi ser er ufullkomne kopier av ideen "Hest"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Sansene</Text> bedrar oss - bare <Text style={{ fontWeight: "600" }}>fornuften</Text> kan nå de sanne ideene{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>To verdener:</Text>{"\n"}
+                      • Idéverdenen (det virkelig virkelige) - evig og perfekt{"\n"}
+                      • Sanseverdenen (skyggeverden) - forgjenelig og upålitelig
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Aristoteles - Realismen:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Denne verden er den virkelige:</Text>{"\n"}
-                  • Det finnes ingen separat idéverden{"\n"}
-                  • Det almenne (essensen) finnes <Text style={{ fontWeight: "600" }}>i</Text> tingene selv, ikke i en annen dimensjon{"\n"}
-                  • Eksempel: "Hest-het" finnes i hver enkelt hest, ikke i en separat idé{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Både sansene og fornuften</Text> er viktige for kunnskap{"\n\n"}
-                  <Text style={{ fontWeight: "600" }}>Én verden:</Text>{"\n"}
-                  • Alt som eksisterer er i denne verden{"\n"}
-                  • Form og materie er uatskillelige i konkrete ting
-                </Text>
+                {idealismeRealismePage === 2 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Aristoteles - Realismen:
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Denne verden er den virkelige:</Text>{"\n"}
+                      • Det finnes ingen separat idéverden{"\n"}
+                      • Det almenne (essensen) finnes <Text style={{ fontWeight: "600" }}>i</Text> tingene selv, ikke i en annen dimensjon{"\n"}
+                      • Eksempel: "Hest-het" finnes i hver enkelt hest, ikke i en separat idé{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Både sansene og fornuften</Text> er viktige for kunnskap{"\n\n"}
+                      <Text style={{ fontWeight: "600" }}>Én verden:</Text>{"\n"}
+                      • Alt som eksisterer er i denne verden{"\n"}
+                      • Form og materie er uatskillelige i konkrete ting
+                    </Text>
+                  </View>
+                )}
+              </ScrollView>
 
+              {/* Navigation buttons */}
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 16, gap: 8 }}>
                 <TouchableOpacity
-                  onPress={() => setShowIdealismeRealismeTooltip(false)}
+                  onPress={() => setIdealismeRealismePage(Math.max(0, idealismeRealismePage - 1))}
+                  disabled={idealismeRealismePage === 0}
                   style={{
-                    marginTop: 16,
-                    backgroundColor: "#4da6ff",
+                    flex: 1,
+                    backgroundColor: idealismeRealismePage === 0 ? "#555" : "#4da6ff",
                     padding: 12,
                     borderRadius: 8,
                     alignItems: "center",
                   }}
                 >
                   <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
-                    Lukk
+                    ← Tilbake
                   </Text>
                 </TouchableOpacity>
+
+                <Text style={{ color: "#4da6ff", fontSize: 14, alignSelf: "center", paddingHorizontal: 8 }}>
+                  {idealismeRealismePage + 1} / 3
+                </Text>
+
+                {idealismeRealismePage < 2 ? (
+                  <TouchableOpacity
+                    onPress={() => setIdealismeRealismePage(Math.min(2, idealismeRealismePage + 1))}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Frem →
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    onPress={() => {
+                      setShowIdealismeRealismeTooltip(false);
+                      setIdealismeRealismePage(0);
+                    }}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Lukk
+                    </Text>
+                  </TouchableOpacity>
+                )}
               </View>
-            </ScrollView>
+            </View>
           </TouchableOpacity>
         </Modal>
 
@@ -576,7 +695,10 @@ export default function ExTipsScreen() {
           transparent={true}
           visible={showKantMillTooltip}
           animationType="fade"
-          onRequestClose={() => setShowKantMillTooltip(false)}
+          onRequestClose={() => {
+            setShowKantMillTooltip(false);
+            setKantMillPage(0);
+          }}
         >
           <TouchableOpacity
             style={{
@@ -587,85 +709,138 @@ export default function ExTipsScreen() {
               padding: 20,
             }}
             activeOpacity={1}
-            onPress={() => setShowKantMillTooltip(false)}
+            onPress={() => {
+              setShowKantMillTooltip(false);
+              setKantMillPage(0);
+            }}
           >
-            <ScrollView
-              contentContainerStyle={{
-                flexGrow: 1,
-                justifyContent: "center",
-                alignItems: "center",
+            <View
+              style={{
+                backgroundColor: "#222",
                 padding: 20,
+                borderRadius: 12,
+                maxWidth: "90%",
+                width: "90%",
+                borderWidth: 2,
+                borderColor: "#4da6ff",
               }}
+              onStartShouldSetResponder={() => true}
             >
-              <View
-                style={{
-                  backgroundColor: "#222",
-                  padding: 20,
-                  borderRadius: 12,
-                  maxWidth: "90%",
-                  borderWidth: 2,
-                  borderColor: "#4da6ff",
-                }}
-              >
-                <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
-                  Kant vs. Mill: Pliktetikk vs. Utilitarisme
-                </Text>
-                
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
-                  <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
-                  • Kant: "Gjør det rette, uansett konsekvenser"{"\n"}
-                  • Mill: "Gjør det som gir best resultat"
-                </Text>
+              <Text style={{ color: "#4da6ff", fontSize: 18, fontWeight: "700", marginBottom: 12 }}>
+                Kant vs. Mill: Pliktetikk vs. Utilitarisme
+              </Text>
+              
+              <ScrollView style={{ maxHeight: 400 }}>
+                {kantMillPage === 0 && (
+                  <View>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22, marginBottom: 12 }}>
+                      <Text style={{ fontWeight: "700", color: "#4da6ff" }}>Essensen:</Text>{"\n"}
+                      • Kant: "Gjør det rette, uansett konsekvenser"{"\n"}
+                      • Mill: "Gjør det som gir best resultat"
+                    </Text>
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
-                  Kants pliktetikk:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens intensjon og plikt{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Er handlingen i seg selv riktig?"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> Det kategoriske imperativ - "Handle kun etter den maksime som du samtidig kan ville skal bli en allmenn lov"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du skal aldri lyve, uansett konsekvenser, fordi løgn i seg selv er galt{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis alle løy, ville tillit og kommunikasjon bryte sammen - derfor er løgn alltid galt{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Menneskets verdi:</Text> Mennesker er mål i seg selv, aldri bare midler
-                </Text>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Kants pliktetikk:
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens intensjon og plikt{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Er handlingen i seg selv riktig?"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> Det kategoriske imperativ - "Handle kun etter den maksime som du samtidig kan ville skal bli en allmenn lov"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du skal aldri lyve, uansett konsekvenser, fordi løgn i seg selv er galt{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis alle løy, ville tillit og kommunikasjon bryte sammen - derfor er løgn alltid galt{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Menneskets verdi:</Text> Mennesker er mål i seg selv, aldri bare midler
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Mills utilitarisme:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens konsekvenser og nytte{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Hva skaper mest lykke for flest mulig?"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> "Den største lykke for det største antall"{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du kan lyve hvis det skaper mer lykke/mindre lidelse totalt sett{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis en løgn redder liv eller forhindrer stor smerte, er den moralsk riktig{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Fleksibilitet:</Text> Samme handling kan være riktig i én situasjon, gal i en annen
-                </Text>
+                {kantMillPage === 1 && (
+                  <View>
+                    <Text style={{ color: "#ffcc00", fontSize: 16, fontWeight: "700", marginTop: 12, marginBottom: 8 }}>
+                      Mills utilitarisme:
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      • <Text style={{ fontWeight: "600" }}>Fokus:</Text> Handlingens konsekvenser og nytte{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Nøkkelspørsmål:</Text> "Hva skaper mest lykke for flest mulig?"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Prinsipp:</Text> "Den største lykke for det største antall"{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Eksempel:</Text> Du kan lyve hvis det skaper mer lykke/mindre lidelse totalt sett{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Logikk:</Text> Hvis en løgn redder liv eller forhindrer stor smerte, er den moralsk riktig{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Fleksibilitet:</Text> Samme handling kan være riktig i én situasjon, gal i en annen
+                    </Text>
+                  </View>
+                )}
 
-                <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
-                  Kjernekonflikten:
-                </Text>
-                <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
-                  <Text style={{ fontWeight: "600" }}>Scenario:</Text> En morder banker på døren og spør hvor vennen din er.{"\n\n"}
-                  • <Text style={{ fontWeight: "600" }}>Kant:</Text> Du må si sannheten (eller i det minste ikke lyve), fordi løgn er alltid galt{"\n"}
-                  • <Text style={{ fontWeight: "600" }}>Mill:</Text> Du bør lyve for å redde vennens liv, fordi det skaper mest lykke/minst lidelse
-                </Text>
+                {kantMillPage === 2 && (
+                  <View>
+                    <Text style={{ color: "#ff6666", fontSize: 16, fontWeight: "700", marginTop: 16, marginBottom: 8 }}>
+                      Kjernekonflikten:
+                    </Text>
+                    <Text style={{ color: "#ddd", fontSize: 14, lineHeight: 22 }}>
+                      <Text style={{ fontWeight: "600" }}>Scenario:</Text> En morder banker på døren og spør hvor vennen din er.{"\n\n"}
+                      • <Text style={{ fontWeight: "600" }}>Kant:</Text> Du må si sannheten (eller i det minste ikke lyve), fordi løgn er alltid galt{"\n"}
+                      • <Text style={{ fontWeight: "600" }}>Mill:</Text> Du bør lyve for å redde vennens liv, fordi det skaper mest lykke/minst lidelse
+                    </Text>
+                  </View>
+                )}
+              </ScrollView>
 
+              {/* Navigation buttons */}
+              <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 16, gap: 8 }}>
                 <TouchableOpacity
-                  onPress={() => setShowKantMillTooltip(false)}
+                  onPress={() => setKantMillPage(Math.max(0, kantMillPage - 1))}
+                  disabled={kantMillPage === 0}
                   style={{
-                    marginTop: 16,
-                    backgroundColor: "#4da6ff",
+                    flex: 1,
+                    backgroundColor: kantMillPage === 0 ? "#555" : "#4da6ff",
                     padding: 12,
                     borderRadius: 8,
                     alignItems: "center",
                   }}
                 >
                   <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
-                    Lukk
+                    ← Tilbake
                   </Text>
                 </TouchableOpacity>
+
+                <Text style={{ color: "#4da6ff", fontSize: 14, alignSelf: "center", paddingHorizontal: 8 }}>
+                  {kantMillPage + 1} / 3
+                </Text>
+
+                {kantMillPage < 2 ? (
+                  <TouchableOpacity
+                    onPress={() => setKantMillPage(Math.min(2, kantMillPage + 1))}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Frem →
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    onPress={() => {
+                      setShowKantMillTooltip(false);
+                      setKantMillPage(0);
+                    }}
+                    style={{
+                      flex: 1,
+                      backgroundColor: "#4da6ff",
+                      padding: 12,
+                      borderRadius: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "#fff", fontSize: 14, fontWeight: "600" }}>
+                      Lukk
+                    </Text>
+                  </TouchableOpacity>
+                )}
               </View>
-            </ScrollView>
+            </View>
           </TouchableOpacity>
         </Modal>
 
